@@ -1,0 +1,271 @@
+{
+  "status": "PASS",
+  "runtime_source_sha256": "6f5d984f35149ff17fb810b1caee0b1a788dd875d09633b4b0d4cc951d232b6f",
+  "build_manifest_sha256": "684b6b6428f51e1db2dd9c4d498769057fe2fab0654eabc1850cb3398e8b3839",
+  "scope": "One invariant invocation, one four-player exported-build real-transport invocation; read-only source/build/evidence verification; no SDD or review lifecycle.",
+  "checks": [
+    {
+      "name": "identity_before",
+      "status": "PASS",
+      "source_files": 144,
+      "evidence_files": 39
+    },
+    {
+      "name": "invariants",
+      "status": "PASS",
+      "assertions": 43,
+      "exit_code": 0,
+      "wall_seconds": 0.5256805,
+      "log": "logs/independent-invariants.log",
+      "production_calls_verified": "Geometry, codec, store, mob simulation, real combat enqueue, Netfox property sanitization and live metric reset methods; no copied validator."
+    },
+    {
+      "name": "four_player_exported_build",
+      "status": "PASS",
+      "wall_seconds": 13.150225417,
+      "existing_harness_result": {
+        "name": "independent-four-player",
+        "status": "PASS",
+        "build": true,
+        "players": 4,
+        "duration_s": 12,
+        "rtt_median_ms": 16.683999999999997,
+        "bot_kills": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bot_deaths": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bot_respawns": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "snapshots": [
+          5850,
+          5950,
+          5850,
+          5850
+        ],
+        "server_combat_hits": 0,
+        "server_kills": 0,
+        "cached_retries": 0,
+        "combat_rejected": {},
+        "counts": [
+          50,
+          0
+        ],
+        "logs": "logs/independent-four-player-server.jsonl"
+      },
+      "clients": [
+        {
+          "peer": 1233188721,
+          "accepted_displacement_m": 9.8333435058594,
+          "predicted_distance_m": 9.83334350585938,
+          "snapshot_updates": 5850,
+          "final_throttle": 32.0
+        },
+        {
+          "peer": 139791544,
+          "accepted_displacement_m": 9.6666774749756,
+          "predicted_distance_m": 9.66667747497559,
+          "snapshot_updates": 5950,
+          "final_throttle": 32.0
+        },
+        {
+          "peer": 1143525464,
+          "accepted_displacement_m": 9.6666774749756,
+          "predicted_distance_m": 9.66667747497559,
+          "snapshot_updates": 5850,
+          "final_throttle": 32.0
+        },
+        {
+          "peer": 289280378,
+          "accepted_displacement_m": 9.8333435058594,
+          "predicted_distance_m": 9.83334350585938,
+          "snapshot_updates": 5850,
+          "final_throttle": 32.0
+        }
+      ],
+      "full_roster_samples": 12
+    },
+    {
+      "name": "final_benchmark_evidence_readback",
+      "status": "PASS",
+      "scenarios": 8,
+      "tick_records": 14400,
+      "os_samples": 480,
+      "warmup_s": 10,
+      "observed_s": 60,
+      "summary_byte_value_equality": true,
+      "active50": {
+        "run_id": "local_active50_181e744743",
+        "scenario": "active50",
+        "tick_count": 1800,
+        "sample_count": 60,
+        "observed_span_s": 59.960924000000006,
+        "tick_ms_p50": 2.696,
+        "tick_ms_p95": 4.888,
+        "tick_ms_p99": 5.631,
+        "rollback_ms_p95": 2.66,
+        "rollback_ticks_mean": 2.0005555555555556,
+        "cpu_core_percent_mean": 11.959416377881729,
+        "rss_mb_peak": 101.359375,
+        "players_mean": 4.0,
+        "active_mobs_mean": 50.0,
+        "dormant_mobs_mean": 0.0,
+        "relevant_mobs_mean": 200.0,
+        "tx_bytes_s_mean": 66818.63356244292,
+        "rx_bytes_s_mean": 124.12888664207249,
+        "dormant_movement_steps_max": 0.0,
+        "dormant_ai_steps_max": 0.0,
+        "dormant_navigation_steps_max": 0.0,
+        "dormancy_status": "NOT_EXERCISED",
+        "tick_goal_status": "WITHIN_GOAL"
+      },
+      "metric_boundaries": "Movement nested in rollback; serialization nested in interest/publication/combat; actual analytic query counters; logging/poll overhead excluded from explicit tick but included in OS CPU; custom payload bytes not total wire bandwidth."
+    },
+    {
+      "name": "build_and_dependency_identity",
+      "status": "PASS",
+      "build_checksum_entries": 15,
+      "engine": "4.7.stable.official.5b4e0cb0f",
+      "netfox": "1.35.3",
+      "netfox_commit": "c7fc6ea52b4e9087c980d9ca1f8c3826e3a6caa4",
+      "provided_metrics_helper_unchanged": true,
+      "netfox_locked_files_verified": 80
+    },
+    {
+      "name": "additional_retained_evidence_readback",
+      "status": "PASS",
+      "acceptance_groups": 8,
+      "lifecycle_groups": 4,
+      "actual_linux_server_architectures": [
+        "arm64",
+        "x86_64"
+      ],
+      "distinct_observed_os_samples": 480,
+      "os_alignment": [
+        {
+          "scenario": "idle",
+          "distinct_observed_os_samples": 60,
+          "maximum_sample_alignment_error_s": 0.13734470799999876
+        },
+        {
+          "scenario": "player",
+          "distinct_observed_os_samples": 60,
+          "maximum_sample_alignment_error_s": 0.43767929200000033
+        },
+        {
+          "scenario": "active20",
+          "distinct_observed_os_samples": 60,
+          "maximum_sample_alignment_error_s": 0.32925037500001686
+        },
+        {
+          "scenario": "dormant20",
+          "distinct_observed_os_samples": 60,
+          "maximum_sample_alignment_error_s": 0.3050050419999817
+        },
+        {
+          "scenario": "dormant100",
+          "distinct_observed_os_samples": 60,
+          "maximum_sample_alignment_error_s": 0.3239708339999723
+        },
+        {
+          "scenario": "active50",
+          "distinct_observed_os_samples": 60,
+          "maximum_sample_alignment_error_s": 0.4022187909999957
+        },
+        {
+          "scenario": "split",
+          "distinct_observed_os_samples": 60,
+          "maximum_sample_alignment_error_s": 0.49369687500000126
+        },
+        {
+          "scenario": "combat",
+          "distinct_observed_os_samples": 60,
+          "maximum_sample_alignment_error_s": 0.492917040999977
+        }
+      ],
+      "proxy_readback": [
+        {
+          "name": "adverse100",
+          "received": 7854,
+          "dropped": 156,
+          "actual_loss_fraction": 0.019862490450725745,
+          "retained_application_rtt_median_ms": 119.565
+        },
+        {
+          "name": "adverse150",
+          "received": 7434,
+          "dropped": 369,
+          "actual_loss_fraction": 0.04963680387409201,
+          "retained_application_rtt_median_ms": 167.5
+        }
+      ],
+      "source_modes_match_delivery_manifest": true,
+      "production_code_readback": [
+        "Root peer1 and Input owner with input broadcast disabled",
+        "Once-per-committed-tick cursor; committed combat queue and dedupe",
+        "Mathematical mob active-set simulation and preserved dormant HP/pose",
+        "Per-client absolute snapshot store refuses old revision/epoch and never deletes omitted records",
+        "Dedicated server skips meshes/cameras/UI; real bot processes connect via ENet",
+        "GUI launcher distinct PIDs and scoped cleanup; button/F3/WASD/mouse bindings in source"
+      ]
+    }
+  ],
+  "commands": [
+    [
+      "/Users/guidocotelesso/Documents/godot/projects/game-99-coop/zombie_corridor_mvp/.tools/godot-4.7/Godot.app/Contents/MacOS/Godot",
+      "--headless",
+      "--path",
+      "/Users/guidocotelesso/Documents/godot/projects/game-99-coop/zombie_corridor_mvp",
+      "res://tests/invariants.tscn"
+    ],
+    "python3 -B - <<'PY': import run_validation; run_validation.case('independent-four-player','active50',['move']*4,12,True); extra accepted-pose/snapshot/readiness checks"
+  ],
+  "external_unverified": [
+    "Authorized VPS destination/public UDP route and VPS capacity",
+    "Native physical keyboard/mouse input while desktop remains locked"
+  ],
+  "skill_resolution": "paths-injected",
+  "owned_processes": [
+    {
+      "pid": 1874,
+      "exit_code": -15,
+      "log": "logs/independent-four-player-server.log"
+    },
+    {
+      "pid": 1875,
+      "exit_code": 0,
+      "log": "logs/independent-four-player-bot-0.log"
+    },
+    {
+      "pid": 1876,
+      "exit_code": 0,
+      "log": "logs/independent-four-player-bot-1.log"
+    },
+    {
+      "pid": 1877,
+      "exit_code": 0,
+      "log": "logs/independent-four-player-bot-2.log"
+    },
+    {
+      "pid": 1878,
+      "exit_code": 0,
+      "log": "logs/independent-four-player-bot-3.log"
+    }
+  ],
+  "all_owned_processes_stopped": true,
+  "protected_files_checked": 848,
+  "protected_file_changes": [],
+  "source_unmodified": true,
+  "wall_seconds": 14.603237917
+}

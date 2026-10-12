@@ -1,0 +1,192 @@
+{
+  "lock_version": 1,
+  "created_date": "2026-10-11",
+  "local_platform": {
+    "os": "macOS",
+    "version": "26.5.1",
+    "architecture": "arm64"
+  },
+  "godot": {
+    "version": "4.7.stable.official.5b4e0cb0f",
+    "release_tag": "4.7-stable",
+    "release_url": "https://github.com/godotengine/godot-builds/releases/tag/4.7-stable",
+    "binary_path": ".tools/godot-4.7/Godot.app/Contents/MacOS/Godot",
+    "binary_sha256": "445c6f95030e2ca767dd921be1e91bd99e50c3703f91d22a22cd31216c93a80f",
+    "self_contained_marker": ".tools/godot-4.7/_sc_",
+    "renderer": "gl_compatibility",
+    "physics_engine": "GodotPhysics3D",
+    "self_contained_data_directory": ".tools/godot-4.7/editor_data"
+  },
+  "downloads": [
+    {
+      "file": "Godot_v4.7-stable_macos.universal.zip",
+      "url": "https://github.com/godotengine/godot-builds/releases/download/4.7-stable/Godot_v4.7-stable_macos.universal.zip",
+      "size_bytes": 166086881,
+      "sha256": "a6708c336f690e0dd8abd3d587d661707f4f33ed436946a3ec000d2fb497fd6c",
+      "verification": "Matched official GitHub release asset SHA256 digest",
+      "purpose": "engine"
+    },
+    {
+      "file": "Godot_v4.7-stable_export_templates.tpz",
+      "url": "https://github.com/godotengine/godot-builds/releases/download/4.7-stable/Godot_v4.7-stable_export_templates.tpz",
+      "size_bytes": 1279207690,
+      "sha256": "9714459dc071907c0f3d5f17d608faf69e7cda21331fc5d39c4503ffa4e99eec",
+      "verification": "Matched official GitHub release asset SHA256 digest",
+      "purpose": "templates"
+    },
+    {
+      "file": "netfox.v1.35.3.zip",
+      "url": "https://github.com/foxssake/netfox/releases/download/v1.35.3/netfox.v1.35.3.zip",
+      "size_bytes": 79958,
+      "sha256": "aba89f4e43031cadd643483904dd0844ea89368f72815cad343d02a21f795fb7",
+      "verification": "Matched official GitHub release asset SHA256 digest",
+      "purpose": "addons"
+    }
+  ],
+  "netfox": {
+    "version": "1.35.3",
+    "release_tag": "v1.35.3",
+    "commit": "c7fc6ea52b4e9087c980d9ca1f8c3826e3a6caa4",
+    "release_url": "https://github.com/foxssake/netfox/releases/tag/v1.35.3",
+    "installed_addons": [
+      "addons/netfox",
+      "addons/netfox.internals"
+    ],
+    "excluded_addons": [
+      "netfox.extras",
+      "netfox.noray"
+    ],
+    "addons_manifest": {
+      "addons/netfox/CONTRIBUTORS.md": "a0af080d24ff8b15d4237f07981d3b753166db9e33817ccff1eb85568322b02a",
+      "addons/netfox/LICENSE": "56b43fff9d16012f7169581442ba2fc807a7dd9baa46bdc12fbe7384fb4618e3",
+      "addons/netfox/README.md": "3babe7a0a03f1dffb565c2fa5f57de316dea0fb3fb290bf1789dcb334ef4cb65",
+      "addons/netfox/encoder/diff-history-encoder.gd": "feb8f593c9c70b601f6a89737aa344ac7944e70ab52deec1c3e9093b79e87a54",
+      "addons/netfox/encoder/diff-history-encoder.gd.uid": "05c6e7f75d190c2db11aaf7a5fa383e7ded7383c84142695ad603e42d21df1db",
+      "addons/netfox/encoder/redundant-history-encoder.gd": "7d58472564fffd30cecfe74417306c0f10f19040e2cdea8347bb4cfec51d9037",
+      "addons/netfox/encoder/redundant-history-encoder.gd.uid": "49084b187bc163384d868a5a8a0f34dd565fdf3cd3d09463ee4c8da144ee08e3",
+      "addons/netfox/encoder/snapshot-history-encoder.gd": "8d58ea31584e7e66e2961e2dce9439dbe5234ff8347dd761bb31616fa2e1de6b",
+      "addons/netfox/encoder/snapshot-history-encoder.gd.uid": "4f3ce40de69d96c3050f9a15a2901f121fa0afa3d6d301f6fec0978e0ac9d40f",
+      "addons/netfox/icons/rewindable-action.svg": "fde7bd534b7925ab2ce9b502ad7ac379dbda388bc3bf636cf699a397a38e3a7e",
+      "addons/netfox/icons/rollback-synchronizer.svg": "5716e2dac5be8aed5050e87517007308d0cfd5a234fa0a9b2c9aaf41416a24ca",
+      "addons/netfox/icons/state-synchronizer.svg": "8989ce51b0dfe556c18bf182edab62b8523ffcf37baa60d6f4704c163365c389",
+      "addons/netfox/icons/tick-interpolator.svg": "9f2b1a64622435c61e69d5613fe2e251dbc4d3813ae743538582ca72682f39a0",
+      "addons/netfox/interpolators.gd": "c474a6a4fc701ea27769b70cc84e937c07c9d69c291a6926f0b9dcd9b00d765d",
+      "addons/netfox/interpolators.gd.uid": "0778f2fdd8dcf072cc63bdbb069cda37d4cc8020e6c229a39e2a4405bec36aad",
+      "addons/netfox/netfox.gd": "dc5c523a6ecb1885e400fabe048d8a213914c499729ffb0243da72abe6919e6c",
+      "addons/netfox/netfox.gd.uid": "3b8fe0e8078c4695009f2d2ad94a93cd05b73db5ab4f1bcfb97c9296eb98a3f2",
+      "addons/netfox/network-events.gd": "a34c7462b063e25ee79a4f22b7c2887af832e8624b35729f6e847637596e7e29",
+      "addons/netfox/network-events.gd.uid": "3943988c325950337bc9cd7d8446cad9df5eb2649f1f366a1c227bcc12678601",
+      "addons/netfox/network-performance.gd": "16d58fa23f9addaaef06d7472abb1cba28487aabdc8f01acd143dedda96cdf04",
+      "addons/netfox/network-performance.gd.uid": "f76c3b27ac371079912cb90aab0f815a6577beb8e46931f7685a4e94840a1bab",
+      "addons/netfox/network-time-synchronizer.gd": "e75b4e3bd45c1b1ae6780cbd2f94c74b129548d4dc079593878659f7e03ac2ee",
+      "addons/netfox/network-time-synchronizer.gd.uid": "e4095669edfda06aaf3222f851e1046889e6ac8a3cd7409b64bbb812fa751cb7",
+      "addons/netfox/network-time.gd": "bc21dd2f94e757632f9af364a03dbcb1d4c8f23c3425ad18b12bdd7df7dd3a9f",
+      "addons/netfox/network-time.gd.uid": "540edb3c272c33680848a91d2b6f70e7d3f77c480624a0056ed2787d88e63a47",
+      "addons/netfox/peer-visibility-filter.gd": "4cb3bb98faa4a336f36116ea56214cd52e8b33790465521e244f3193fbe778f5",
+      "addons/netfox/peer-visibility-filter.gd.uid": "0d155459ada974dc5693781b8905d3d75188fab8ad588dca31ad8679b20512b2",
+      "addons/netfox/plugin.cfg": "c8082fd3bf9f7f870f59e49c9e9d7a33040a38e320390688ee7ffdf7e6f27578",
+      "addons/netfox/properties/property-cache.gd": "65d62f48f281348f1e979f285c322de1f01c8e1fe00ade612cd76d77b55ffc6b",
+      "addons/netfox/properties/property-cache.gd.uid": "bd7292c1195003f973ce40d122cc1d2373e2ab197c1bb88d0d35fbd4c1053e0c",
+      "addons/netfox/properties/property-config.gd": "c1ee0b93fbb3d5f0c664f8ab5c14d9cf74e2adbc7555d798e6b6b5fe0c09cf5e",
+      "addons/netfox/properties/property-config.gd.uid": "559ac00ff68f846a197ab35246a0f6e71a615f3020d85bcd4bbb8fc0ddd826d6",
+      "addons/netfox/properties/property-entry.gd": "a91899de9bb0c33ef1f8f89c040eebceb51ca4f8438c57fae13b316b1cf55370",
+      "addons/netfox/properties/property-entry.gd.uid": "bebaeb4b0ea329369eba1873bc86bc2f05526b7db1061b9ee0bb92e0e0c88321",
+      "addons/netfox/properties/property-history-buffer.gd": "b5ca5334b6bef1052dd59394b6bfe3bca0ff1b1647f816c74e876122bef01cbf",
+      "addons/netfox/properties/property-history-buffer.gd.uid": "bf338bc6d4bf2d5e9af30e2271d281bc0fe87a350a6649af63abd65858b3654f",
+      "addons/netfox/properties/property-snapshot.gd": "01837ddfc3fec605c472171dbf5a83d96f5afb5a500a3406f3d6efccd429b372",
+      "addons/netfox/properties/property-snapshot.gd.uid": "d58c13f2896f1f731f73ee8dd7484d7eeac97166abbd5724848a1a156fde80fa",
+      "addons/netfox/rewindable-action.gd": "6703ac3b37d4fe1c2f0911314dfbe12d78b32de56bcfd3e5a374ad5bdbdfbb61",
+      "addons/netfox/rewindable-action.gd.uid": "9221948fd24d62769504e1e3dfad8701e71359a9b79054d5f96ad1209d586ac3",
+      "addons/netfox/rollback/composite/rollback-history-recorder.gd": "7de7e91a86d340af582aca3c15f00105df8146e1af2118b211e396153a130567",
+      "addons/netfox/rollback/composite/rollback-history-recorder.gd.uid": "7c0717180167f846c2f2f74ff2c363fdd7399d2cb8bcaf50ad96c42f05efdfca",
+      "addons/netfox/rollback/composite/rollback-history-transmitter.gd": "1cc2fe3ba3a49514ac3063d41534b57cd7fe08eabdf14c0494c00875f14a222a",
+      "addons/netfox/rollback/composite/rollback-history-transmitter.gd.uid": "d087e7662138c8df7f7fc34514b3e3a4153e18e0d85fdd73e1383a07340e5b62",
+      "addons/netfox/rollback/network-rollback.gd": "d48b1603b72dfe3690c6ee7005378e68b8f84ad069c82524a07ce7fe8af77fd7",
+      "addons/netfox/rollback/network-rollback.gd.uid": "da03032ad2ac7fff9c6058587d2983d8d7517ea5e5e7bc3e2b00d1afd6027b87",
+      "addons/netfox/rollback/rollback-freshness-store.gd": "7042dab60f89def1630636cf6c30da785772a37b658c7ba94c204dde389344a7",
+      "addons/netfox/rollback/rollback-freshness-store.gd.uid": "353758ac5c4aa65c0d281351c2df24f0063bd8da9544be89b64dad894930cee3",
+      "addons/netfox/rollback/rollback-synchronizer.gd": "21ec38d988233575e2a4f6a205fc47d436e97c6247b8884fc8e3ca8baeafb235",
+      "addons/netfox/rollback/rollback-synchronizer.gd.uid": "ae79025d877261b375b362bc3a31c903f12d546d8ec2afcbcfe5f2a15839eb22",
+      "addons/netfox/serializers/tickset-serializer.gd": "56fc4c235979732006d84eaed7e5702e93a271d4797886c1eced68c9dfceaa21",
+      "addons/netfox/serializers/tickset-serializer.gd.uid": "850feae1ee7e937279e9af29e7478381c66d3bda7fd023e3550d1e8ba972acb6",
+      "addons/netfox/state-synchronizer.gd": "3461fefbd8cba5a21e5ecf6dde439d3afbd6a9ad66f0818466ba984c40b7ca4a",
+      "addons/netfox/state-synchronizer.gd.uid": "64e0ad6fad322c740c89512264f34f8ace9603eedb8a66d8d47283d0c295a04e",
+      "addons/netfox/tick-interpolator.gd": "7afa2010c6731fa8bd720275a96bec3b0fe871313d5f63434af6f5e6815e392e",
+      "addons/netfox/tick-interpolator.gd.uid": "bafcb7231753735b5a85ebd1012cd9a732aafdad2fd95f5f660134f728fccf4a",
+      "addons/netfox/time/network-clock-sample.gd": "ebec08893aeae804b3fa8929c2972fd8461f072ac93eeb930f7781ad00973b74",
+      "addons/netfox/time/network-clock-sample.gd.uid": "4cdf6521bad23bf23d6ab6b97f0c20f3f95b2532ec55ec6beb98ef06a1965eef",
+      "addons/netfox/time/network-clocks.gd": "acc2971269fdeba3253fc5dea266ebf1bc3e8acc73f9f67a4172326d46e0b733",
+      "addons/netfox/time/network-clocks.gd.uid": "c7288b5beb73c28d2611fb9847202883fbeeb0821629af84592be4b5344b406d",
+      "addons/netfox/time/network-tickrate-handshake.gd": "8079b75e8d6a391623b32248f1a6ea47dbd77cb576a75aaf073339cba646d3ad",
+      "addons/netfox/time/network-tickrate-handshake.gd.uid": "97a738acc6caabab1dc0c3b36e01cecbd76e6ca54560175663536b0d0ab1b34b",
+      "addons/netfox.internals/CONTRIBUTORS.md": "a0af080d24ff8b15d4237f07981d3b753166db9e33817ccff1eb85568322b02a",
+      "addons/netfox.internals/LICENSE": "56b43fff9d16012f7169581442ba2fc807a7dd9baa46bdc12fbe7384fb4618e3",
+      "addons/netfox.internals/README.md": "9e75ff1c6ce926356a08fd94632682dd5134ab1b7d339a32c174d09be43f1fe0",
+      "addons/netfox.internals/bimap.gd": "fcf076e28f74a8eeb2a24f76ba5b6f16729afd72b5aeeda55296f31d4ed639a6",
+      "addons/netfox.internals/bimap.gd.uid": "3ad016798a18d5062841a8a2c3a56657734da5cb004710e7ec778b012fd78e23",
+      "addons/netfox.internals/editor-utils.gd": "b711cdbcc2fc0be0044de5b1ff6386abbd8cd1460f20c68439a386ddea345cf8",
+      "addons/netfox.internals/editor-utils.gd.uid": "1093de4924cca62077ee4094686e0d2ec1d6b44524552ccc48bcb983b1cbd63a",
+      "addons/netfox.internals/history-buffer.gd": "804a62fab4ea9f0c2b2e5982d85f90510cb35fb3d1a94d2fedeee5007272f2d2",
+      "addons/netfox.internals/history-buffer.gd.uid": "38cc98c2990464c868aeb208f9a853b0d8f281b05d427cd2036afeca6aa8183d",
+      "addons/netfox.internals/logger.gd": "807ad9df4304cb3061a9730883b54d0bc1896f704d85b1c31a83befd9fe5b92b",
+      "addons/netfox.internals/logger.gd.uid": "13ab29184db8f15b35f864ee737ceae7db65d2f7331b9de3aa62f0b1b96364ef",
+      "addons/netfox.internals/plugin.cfg": "bac2560b948f683ceeeeb1d3dade4c7691ac1562a0d69210a6dcb9f7f9387494",
+      "addons/netfox.internals/plugin.gd": "9a1528d0b741ba5ba6e01b776e19cade981dfccd0c70463ea1ac4db87230fed8",
+      "addons/netfox.internals/plugin.gd.uid": "bd84a0d2a221c69a46f9b957ce792c3b009d34f2c61a525ca0f9df51af277775",
+      "addons/netfox.internals/ring-buffer.gd": "7c6fdf59b18a21772f67dd67dcfe62841355208043a22ba87e0d0564ab7af551",
+      "addons/netfox.internals/ring-buffer.gd.uid": "1555049c4b04d441ae09045cbf211980f364fcbfd150436f293482af5fea0701",
+      "addons/netfox.internals/set.gd": "9318b108b9048d0245ec805e0405dc013f7c388a9d36ae5e45bcca01f4c54668",
+      "addons/netfox.internals/set.gd.uid": "8186aee7ce8bdb7e504d052ef76f81dd5c5f32041269b8f2a9dc922dfcfe2934"
+    }
+  },
+  "templates": {
+    "version": "4.7.stable",
+    "directory": ".tools/export_templates",
+    "files": {
+      "linux_debug.arm64": "91ffe17c39e2663b0286fc5dbed86cdedb3eccdadf878a84fe9450d910a5bfcd",
+      "linux_debug.x86_64": "edaf3670eefe230dc711319e7bd4d08e546652a1c93922910d07baaf2d775fa0",
+      "linux_release.arm64": "3adb2492b99892d37c53b6cf27eb6e2451e760e2404a90446cc2c00a9b148921",
+      "linux_release.x86_64": "3154bb4465f616e24b811dd576e9230022872cd80f8d5ab854efed2716b926d4",
+      "macos.zip": "b9b036261c18dac2c6ade52ffb592e3842cb9b76d8c8d0f55bc7b99ac4dfeae0",
+      "version.txt": "7017d4d6a7a1d42d86638574e001a0042dfdcb78554ab24dd714ab23ad38baa2"
+    },
+    "portable_editor_link": ".tools/godot-4.7/editor_data/export_templates/4.7.stable"
+  },
+  "remote": {
+    "status": "pending_external",
+    "reason": "No unambiguous project-authorized VPS endpoint is identified. Existing unrelated SSH configuration was not used.",
+    "vps_architecture": "unverified",
+    "available_linux_architectures": [
+      "x86_64",
+      "arm64"
+    ]
+  },
+  "reproduction": {
+    "bootstrap": "python3 scripts/bootstrap_dependencies.py",
+    "verify_engine": ".tools/godot-4.7/Godot.app/Contents/MacOS/Godot --version",
+    "import": ".tools/godot-4.7/Godot.app/Contents/MacOS/Godot --headless --path . --editor --quit"
+  },
+  "supplied_skill": {
+    "name": "godot-build-zombie-coop",
+    "installation": "$CODEX_HOME/skills/godot-build-zombie-coop",
+    "files": {
+      "SKILL.md": "cf83cb8fa17fddb8030f3e98931542386bb4874233552e14b3ce57b8d4a70bc1",
+      "references/architecture.md": "ed3e32873530a037a9faab718ac32912eef3f72fe39cefc9675156afbf64c7c0",
+      "references/sources.md": "b886bf1fac1478e3b07c82e2b849aeeba5656fd1b7a2f549cc1f135c929ed792",
+      "references/default-config.json": "2ea32e2c3bf17ef73e2371c8826d4b0cf3dd22a03eccea71dc0126841b8d5935",
+      "references/network-protocol.md": "ef843d7251ff90685246382706b823d8d919493da281ecf89f67723e5187bc20",
+      "references/simulation-interest.md": "a4c4d13102d192158f12ff12f5b30a5eb2f16f9c0e2650b9add6131ba20c79a1",
+      "references/validation-deployment.md": "81359965b07563de389244885dcedba7f6c38319b05f995f33e01ae5f7154d9d",
+      "agents/openai.yaml": "d213941a3f8687cf874f822d06338c71730e06f76ed06ceb22606fdbd70d8892",
+      "scripts/summarize_metrics.py": "ce3647bcb04217f783db0ce2bb1c52c99573d33ea5e93314bd8783cf459146d6"
+    }
+  },
+  "verification": {
+    "import_log": "logs/bootstrap-import.log",
+    "import_outcome": "No engine or script errors when executed outside the filesystem sandbox",
+    "import_only_not_gameplay": true,
+    "probe_log": "logs/bootstrap-probe.log",
+    "probe_outcome": "BOOTSTRAP_PROBE_OK; actual configured physics30, fps60, history16, catchup3, explicit lifecycle",
+    "linux_validation_runtime": "Docker Desktop 29.7.2 aarch64 reachable with sandbox escalation; exported gameplay not yet implemented or checked"
+  }
+}

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmxscn4shottracer"]
+
+[ext_resource type="ArrayMesh" path="res://scenes/resources/tracer_mesh.tres" id="1_mesh"]
+[ext_resource type="StandardMaterial3D" path="res://scenes/resources/tracer_predicted.tres" id="2_predicted"]
+
+[node name="ShotTracer" type="MeshInstance3D"]
+visible = false
+mesh = ExtResource("1_mesh")
+material_override = ExtResource("2_predicted")

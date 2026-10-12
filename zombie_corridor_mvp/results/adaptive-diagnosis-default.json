@@ -1,0 +1,8 @@
+[
+  {
+    "run": 0,
+    "status": "FAIL",
+    "error": "AssertionError(('four_player', 'movement absent'))",
+    "logs": "logs/adaptive-diagnosis-default/0"
+  }
+]

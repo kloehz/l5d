@@ -1,0 +1,96 @@
+{
+  "runtime_source_sha256": "c889dad348d7086df393f5673981bd0b4ad2635a739ea49867a7f61184941ac7",
+  "build_manifest_sha256": "e192c0365fef84ede62adf4c1cb3315a75dad527e8487e37897e6516761d99e7",
+  "status": "FAIL",
+  "error": "AssertionError(('benchmark-final-run', 'failed; dependent stages not launched'))",
+  "stages": [
+    {
+      "stage": "invariants-final",
+      "command": [
+        "/Users/guidocotelesso/Documents/godot/projects/game-99-coop/zombie_corridor_mvp/.tools/godot-4.7/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/guidocotelesso/Documents/godot/projects/game-99-coop/zombie_corridor_mvp",
+        "res://tests/invariants.tscn"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.290810875,
+      "log": "logs/invariants-final.log"
+    },
+    {
+      "stage": "transport-final-result",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/transport_smoke.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 8.993603292,
+      "log": "logs/transport-final-result.log"
+    },
+    {
+      "stage": "validation-final-release",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/run_validation.py",
+        "--case",
+        "all",
+        "--build"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 156.939650167,
+      "log": "logs/validation-final-release.log"
+    },
+    {
+      "stage": "lifecycle-final",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/run_lifecycle_checks.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 66.702848792,
+      "log": "logs/lifecycle-final.log"
+    },
+    {
+      "stage": "linux-transport-final",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/run_linux_transport.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 61.07209129200001,
+      "log": "logs/linux-transport-final.log"
+    },
+    {
+      "stage": "render-final",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/capture_release_frames.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 11.411549666999974,
+      "log": "logs/render-final.log"
+    },
+    {
+      "stage": "gui-final",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/run_local_demo.py",
+        "--duration",
+        "12"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 13.603812375000018,
+      "log": "logs/gui-final.log"
+    },
+    {
+      "stage": "benchmark-final-run",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/run_benchmark.py"
+      ],
+      "exit_code": -2,
+      "wall_seconds": 378.509249333,
+      "log": "logs/benchmark-final-run.log"
+    }
+  ]
+}

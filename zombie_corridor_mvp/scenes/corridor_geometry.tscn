@@ -1,0 +1,167 @@
+[gd_scene load_steps=20 format=3 uid="uid://c0rrid0rgeom99"]
+
+[ext_resource type="Script" path="res://game/authored_box.gd" id="1_box"]
+
+[sub_resource type="BoxShape3D" id="BoxShape_floor"]
+resource_local_to_scene = true
+size = Vector3(12, 1, 182)
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+resource_local_to_scene = true
+size = Vector3(12, 1, 182)
+
+[sub_resource type="StandardMaterial3D" id="Material_floor"]
+resource_local_to_scene = true
+albedo_color = Color(0.14, 0.19, 0.24, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape_left"]
+resource_local_to_scene = true
+size = Vector3(1, 6, 180)
+
+[sub_resource type="BoxMesh" id="BoxMesh_left"]
+resource_local_to_scene = true
+size = Vector3(1, 6, 180)
+
+[sub_resource type="StandardMaterial3D" id="Material_left"]
+resource_local_to_scene = true
+albedo_color = Color(0.23, 0.3, 0.36, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape_right"]
+resource_local_to_scene = true
+size = Vector3(1, 6, 180)
+
+[sub_resource type="BoxMesh" id="BoxMesh_right"]
+resource_local_to_scene = true
+size = Vector3(1, 6, 180)
+
+[sub_resource type="StandardMaterial3D" id="Material_right"]
+resource_local_to_scene = true
+albedo_color = Color(0.23, 0.3, 0.36, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape_front"]
+resource_local_to_scene = true
+size = Vector3(12, 6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_front"]
+resource_local_to_scene = true
+size = Vector3(12, 6, 1)
+
+[sub_resource type="StandardMaterial3D" id="Material_front"]
+resource_local_to_scene = true
+albedo_color = Color(0.23, 0.3, 0.36, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape_back"]
+resource_local_to_scene = true
+size = Vector3(12, 6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_back"]
+resource_local_to_scene = true
+size = Vector3(12, 6, 1)
+
+[sub_resource type="StandardMaterial3D" id="Material_back"]
+resource_local_to_scene = true
+albedo_color = Color(0.23, 0.3, 0.36, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape_baffle"]
+resource_local_to_scene = true
+size = Vector3(6, 3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_baffle"]
+resource_local_to_scene = true
+size = Vector3(6, 3, 1)
+
+[sub_resource type="StandardMaterial3D" id="Material_baffle"]
+resource_local_to_scene = true
+albedo_color = Color(0.23, 0.3, 0.36, 1)
+
+[node name="CorridorGeometry" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.5, -90)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_box")
+role = &"floor"
+visual_color = Color(0.14, 0.19, 0.24, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape_floor")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/CollisionShape3D"]
+mesh = SubResource("BoxMesh_floor")
+material_override = SubResource("Material_floor")
+
+[node name="BoundaryLeft" type="StaticBody3D" parent="."]
+position = Vector3(-5.5, 2, -90)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_box")
+role = &"boundary_left"
+visual_color = Color(0.23, 0.3, 0.36, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoundaryLeft"]
+shape = SubResource("BoxShape_left")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BoundaryLeft/CollisionShape3D"]
+mesh = SubResource("BoxMesh_left")
+material_override = SubResource("Material_left")
+
+[node name="BoundaryRight" type="StaticBody3D" parent="."]
+position = Vector3(5.5, 2, -90)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_box")
+role = &"boundary_right"
+visual_color = Color(0.23, 0.3, 0.36, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoundaryRight"]
+shape = SubResource("BoxShape_right")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BoundaryRight/CollisionShape3D"]
+mesh = SubResource("BoxMesh_right")
+material_override = SubResource("Material_right")
+
+[node name="BoundaryFront" type="StaticBody3D" parent="."]
+position = Vector3(0, 2, 0.5)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_box")
+role = &"boundary_front"
+visual_color = Color(0.23, 0.3, 0.36, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoundaryFront"]
+shape = SubResource("BoxShape_front")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BoundaryFront/CollisionShape3D"]
+mesh = SubResource("BoxMesh_front")
+material_override = SubResource("Material_front")
+
+[node name="BoundaryBack" type="StaticBody3D" parent="."]
+position = Vector3(0, 2, -180.5)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_box")
+role = &"boundary_back"
+visual_color = Color(0.23, 0.3, 0.36, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoundaryBack"]
+shape = SubResource("BoxShape_back")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BoundaryBack/CollisionShape3D"]
+mesh = SubResource("BoxMesh_back")
+material_override = SubResource("Material_back")
+
+[node name="Baffle" type="StaticBody3D" parent="."]
+position = Vector3(-2, 1.5, -69.5)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_box")
+role = &"baffle"
+visual_color = Color(0.23, 0.3, 0.36, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Baffle"]
+shape = SubResource("BoxShape_baffle")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Baffle/CollisionShape3D"]
+mesh = SubResource("BoxMesh_baffle")
+material_override = SubResource("Material_baffle")

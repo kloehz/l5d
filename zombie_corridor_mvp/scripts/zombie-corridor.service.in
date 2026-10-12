@@ -1,0 +1,17 @@
+[Unit]
+Description=Zombie Corridor dedicated prototype
+After=network-online.target
+[Service]
+User=@USER@
+WorkingDirectory=@DIRECTORY@
+Environment=HOME=@DIRECTORY@
+ExecStart=@DIRECTORY@/zombie-server --headless -- --server --port @PORT@
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=@DIRECTORY@
+[Install]
+WantedBy=multi-user.target

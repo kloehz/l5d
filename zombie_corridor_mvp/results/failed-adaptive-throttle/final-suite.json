@@ -1,0 +1,44 @@
+{
+  "runtime_source_sha256": "69d81a0e7b2fa479b74fe99db9d603cdd200b36b7087a4d550b14128170f5575",
+  "build_manifest_sha256": "ccf3eb864622f9424c6547176921d111073ffcf3a66134daaaa50466587a829f",
+  "status": "FAIL",
+  "error": "AssertionError(('validation-final-release', 'failed; dependent stages not launched'))",
+  "stages": [
+    {
+      "stage": "invariants-final",
+      "command": [
+        "/Users/guidocotelesso/Documents/godot/projects/game-99-coop/zombie_corridor_mvp/.tools/godot-4.7/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/guidocotelesso/Documents/godot/projects/game-99-coop/zombie_corridor_mvp",
+        "res://tests/invariants.tscn"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.2589235,
+      "log": "logs/invariants-final.log"
+    },
+    {
+      "stage": "transport-final-result",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/transport_smoke.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 8.958372584,
+      "log": "logs/transport-final-result.log"
+    },
+    {
+      "stage": "validation-final-release",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/run_validation.py",
+        "--case",
+        "all",
+        "--build"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 157.205058458,
+      "log": "logs/validation-final-release.log"
+    }
+  ]
+}

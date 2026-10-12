@@ -1,0 +1,330 @@
+{
+  "runtime_source_sha256": "69d81a0e7b2fa479b74fe99db9d603cdd200b36b7087a4d550b14128170f5575",
+  "files": [
+    {
+      "path": "addons/netfox/CONTRIBUTORS.md",
+      "sha256": "a0af080d24ff8b15d4237f07981d3b753166db9e33817ccff1eb85568322b02a",
+      "bytes": 1266
+    },
+    {
+      "path": "addons/netfox/LICENSE",
+      "sha256": "56b43fff9d16012f7169581442ba2fc807a7dd9baa46bdc12fbe7384fb4618e3",
+      "bytes": 1054
+    },
+    {
+      "path": "addons/netfox/README.md",
+      "sha256": "3babe7a0a03f1dffb565c2fa5f57de316dea0fb3fb290bf1789dcb334ef4cb65",
+      "bytes": 1032
+    },
+    {
+      "path": "addons/netfox/encoder/diff-history-encoder.gd",
+      "sha256": "feb8f593c9c70b601f6a89737aa344ac7944e70ab52deec1c3e9093b79e87a54",
+      "bytes": 4197
+    },
+    {
+      "path": "addons/netfox/encoder/redundant-history-encoder.gd",
+      "sha256": "7d58472564fffd30cecfe74417306c0f10f19040e2cdea8347bb4cfec51d9037",
+      "bytes": 3233
+    },
+    {
+      "path": "addons/netfox/encoder/snapshot-history-encoder.gd",
+      "sha256": "8d58ea31584e7e66e2961e2dce9439dbe5234ff8347dd761bb31616fa2e1de6b",
+      "bytes": 2085
+    },
+    {
+      "path": "addons/netfox/icons/rewindable-action.svg",
+      "sha256": "fde7bd534b7925ab2ce9b502ad7ac379dbda388bc3bf636cf699a397a38e3a7e",
+      "bytes": 3245
+    },
+    {
+      "path": "addons/netfox/icons/rollback-synchronizer.svg",
+      "sha256": "5716e2dac5be8aed5050e87517007308d0cfd5a234fa0a9b2c9aaf41416a24ca",
+      "bytes": 2474
+    },
+    {
+      "path": "addons/netfox/icons/state-synchronizer.svg",
+      "sha256": "8989ce51b0dfe556c18bf182edab62b8523ffcf37baa60d6f4704c163365c389",
+      "bytes": 2634
+    },
+    {
+      "path": "addons/netfox/icons/tick-interpolator.svg",
+      "sha256": "9f2b1a64622435c61e69d5613fe2e251dbc4d3813ae743538582ca72682f39a0",
+      "bytes": 2581
+    },
+    {
+      "path": "addons/netfox/interpolators.gd",
+      "sha256": "c474a6a4fc701ea27769b70cc84e937c07c9d69c291a6926f0b9dcd9b00d765d",
+      "bytes": 3213
+    },
+    {
+      "path": "addons/netfox/netfox.gd",
+      "sha256": "dc5c523a6ecb1885e400fabe048d8a213914c499729ffb0243da72abe6919e6c",
+      "bytes": 4791
+    },
+    {
+      "path": "addons/netfox/network-events.gd",
+      "sha256": "a34c7462b063e25ee79a4f22b7c2887af832e8624b35729f6e847637596e7e29",
+      "bytes": 4449
+    },
+    {
+      "path": "addons/netfox/network-performance.gd",
+      "sha256": "16d58fa23f9addaaef06d7472abb1cba28487aabdc8f01acd143dedda96cdf04",
+      "bytes": 6683
+    },
+    {
+      "path": "addons/netfox/network-time-synchronizer.gd",
+      "sha256": "e75b4e3bd45c1b1ae6780cbd2f94c74b129548d4dc079593878659f7e03ac2ee",
+      "bytes": 8706
+    },
+    {
+      "path": "addons/netfox/network-time.gd",
+      "sha256": "bc21dd2f94e757632f9af364a03dbcb1d4c8f23c3425ad18b12bdd7df7dd3a9f",
+      "bytes": 19971
+    },
+    {
+      "path": "addons/netfox/peer-visibility-filter.gd",
+      "sha256": "4cb3bb98faa4a336f36116ea56214cd52e8b33790465521e244f3193fbe778f5",
+      "bytes": 6772
+    },
+    {
+      "path": "addons/netfox/plugin.cfg",
+      "sha256": "c8082fd3bf9f7f870f59e49c9e9d7a33040a38e320390688ee7ffdf7e6f27578",
+      "bytes": 148
+    },
+    {
+      "path": "addons/netfox/properties/property-cache.gd",
+      "sha256": "65d62f48f281348f1e979f285c322de1f01c8e1fe00ade612cd76d77b55ffc6b",
+      "bytes": 718
+    },
+    {
+      "path": "addons/netfox/properties/property-config.gd",
+      "sha256": "c1ee0b93fbb3d5f0c664f8ab5c14d9cf74e2adbc7555d798e6b6b5fe0c09cf5e",
+      "bytes": 1122
+    },
+    {
+      "path": "addons/netfox/properties/property-entry.gd",
+      "sha256": "a91899de9bb0c33ef1f8f89c040eebceb51ca4f8438c57fae13b316b1cf55370",
+      "bytes": 1206
+    },
+    {
+      "path": "addons/netfox/properties/property-history-buffer.gd",
+      "sha256": "b5ca5334b6bef1052dd59394b6bfe3bca0ff1b1647f816c74e876122bef01cbf",
+      "bytes": 818
+    },
+    {
+      "path": "addons/netfox/properties/property-snapshot.gd",
+      "sha256": "01837ddfc3fec605c472171dbf5a83d96f5afb5a500a3406f3d6efccd429b372",
+      "bytes": 2435
+    },
+    {
+      "path": "addons/netfox/rewindable-action.gd",
+      "sha256": "6703ac3b37d4fe1c2f0911314dfbe12d78b32de56bcfd3e5a374ad5bdbdfbb61",
+      "bytes": 7949
+    },
+    {
+      "path": "addons/netfox/rollback/composite/rollback-history-recorder.gd",
+      "sha256": "7de7e91a86d340af582aca3c15f00105df8146e1af2118b211e396153a130567",
+      "bytes": 3706
+    },
+    {
+      "path": "addons/netfox/rollback/composite/rollback-history-transmitter.gd",
+      "sha256": "1cc2fe3ba3a49514ac3063d41534b57cd7fe08eabdf14c0494c00875f14a222a",
+      "bytes": 10111
+    },
+    {
+      "path": "addons/netfox/rollback/network-rollback.gd",
+      "sha256": "d48b1603b72dfe3690c6ee7005378e68b8f84ad069c82524a07ce7fe8af77fd7",
+      "bytes": 13248
+    },
+    {
+      "path": "addons/netfox/rollback/rollback-freshness-store.gd",
+      "sha256": "7042dab60f89def1630636cf6c30da785772a37b658c7ba94c204dde389344a7",
+      "bytes": 689
+    },
+    {
+      "path": "addons/netfox/rollback/rollback-synchronizer.gd",
+      "sha256": "21ec38d988233575e2a4f6a205fc47d436e97c6247b8884fc8e3ca8baeafb235",
+      "bytes": 16044
+    },
+    {
+      "path": "addons/netfox/serializers/tickset-serializer.gd",
+      "sha256": "56fc4c235979732006d84eaed7e5702e93a271d4797886c1eced68c9dfceaa21",
+      "bytes": 1135
+    },
+    {
+      "path": "addons/netfox/state-synchronizer.gd",
+      "sha256": "3461fefbd8cba5a21e5ecf6dde439d3afbd6a9ad66f0818466ba984c40b7ca4a",
+      "bytes": 9439
+    },
+    {
+      "path": "addons/netfox/tick-interpolator.gd",
+      "sha256": "7afa2010c6731fa8bd720275a96bec3b0fe871313d5f63434af6f5e6815e392e",
+      "bytes": 5093
+    },
+    {
+      "path": "addons/netfox/time/network-clock-sample.gd",
+      "sha256": "ebec08893aeae804b3fa8929c2972fd8461f072ac93eeb930f7781ad00973b74",
+      "bytes": 674
+    },
+    {
+      "path": "addons/netfox/time/network-clocks.gd",
+      "sha256": "acc2971269fdeba3253fc5dea266ebf1bc3e8acc73f9f67a4172326d46e0b733",
+      "bytes": 907
+    },
+    {
+      "path": "addons/netfox/time/network-tickrate-handshake.gd",
+      "sha256": "8079b75e8d6a391623b32248f1a6ea47dbd77cb576a75aaf073339cba646d3ad",
+      "bytes": 3384
+    },
+    {
+      "path": "addons/netfox.internals/CONTRIBUTORS.md",
+      "sha256": "a0af080d24ff8b15d4237f07981d3b753166db9e33817ccff1eb85568322b02a",
+      "bytes": 1266
+    },
+    {
+      "path": "addons/netfox.internals/LICENSE",
+      "sha256": "56b43fff9d16012f7169581442ba2fc807a7dd9baa46bdc12fbe7384fb4618e3",
+      "bytes": 1054
+    },
+    {
+      "path": "addons/netfox.internals/README.md",
+      "sha256": "9e75ff1c6ce926356a08fd94632682dd5134ab1b7d339a32c174d09be43f1fe0",
+      "bytes": 205
+    },
+    {
+      "path": "addons/netfox.internals/bimap.gd",
+      "sha256": "fcf076e28f74a8eeb2a24f76ba5b6f16729afd72b5aeeda55296f31d4ed639a6",
+      "bytes": 1278
+    },
+    {
+      "path": "addons/netfox.internals/editor-utils.gd",
+      "sha256": "b711cdbcc2fc0be0044de5b1ff6386abbd8cd1460f20c68439a386ddea345cf8",
+      "bytes": 1541
+    },
+    {
+      "path": "addons/netfox.internals/history-buffer.gd",
+      "sha256": "804a62fab4ea9f0c2b2e5982d85f90510cb35fb3d1a94d2fedeee5007272f2d2",
+      "bytes": 1332
+    },
+    {
+      "path": "addons/netfox.internals/logger.gd",
+      "sha256": "807ad9df4304cb3061a9730883b54d0bc1896f704d85b1c31a83befd9fe5b92b",
+      "bytes": 6345
+    },
+    {
+      "path": "addons/netfox.internals/plugin.cfg",
+      "sha256": "bac2560b948f683ceeeeb1d3dade4c7691ac1562a0d69210a6dcb9f7f9387494",
+      "bytes": 158
+    },
+    {
+      "path": "addons/netfox.internals/plugin.gd",
+      "sha256": "9a1528d0b741ba5ba6e01b776e19cade981dfccd0c70463ea1ac4db87230fed8",
+      "bytes": 883
+    },
+    {
+      "path": "addons/netfox.internals/ring-buffer.gd",
+      "sha256": "7c6fdf59b18a21772f67dd67dcfe62841355208043a22ba87e0d0564ab7af551",
+      "bytes": 515
+    },
+    {
+      "path": "addons/netfox.internals/set.gd",
+      "sha256": "9318b108b9048d0245ec805e0405dc013f7c388a9d36ae5e45bcca01f4c54668",
+      "bytes": 1101
+    },
+    {
+      "path": "config/default-config.json",
+      "sha256": "2ea32e2c3bf17ef73e2371c8826d4b0cf3dd22a03eccea71dc0126841b8d5935",
+      "bytes": 1081
+    },
+    {
+      "path": "dependencies.lock.json",
+      "sha256": "e1f298eecaaf16c813f85d453a5b02598a134bbb7104d0aa33aa0a8d0f2014fb",
+      "bytes": 14795
+    },
+    {
+      "path": "export_presets.cfg",
+      "sha256": "d2707999c652a7d2f46d5fc8c4ada20d25be3447f127c21026087fbf92326622",
+      "bytes": 1980
+    },
+    {
+      "path": "game/bootstrap.gd",
+      "sha256": "76eeee22e59dc487b04049f8151eaefc86af5903bcd06de94026e5ab77c334d0",
+      "bytes": 357
+    },
+    {
+      "path": "game/client_store.gd",
+      "sha256": "86c2c54d865e6e4d0056aa5e41e46d6d51793b8fc04b29da8816ba0d4143be70",
+      "bytes": 1202
+    },
+    {
+      "path": "game/combat.gd",
+      "sha256": "87e6b3393749f3fc3ba6d01a4bace12c7fe84d61aa21c75cc768d7e22ab9dbbe",
+      "bytes": 3154
+    },
+    {
+      "path": "game/geometry.gd",
+      "sha256": "4825c0b4d82902b3e5b94fde54106bbe8f422f8ba80098855fd1f1075ae8faf6",
+      "bytes": 2253
+    },
+    {
+      "path": "game/mob_world.gd",
+      "sha256": "da9247495fab093ec120c18d10c187d52c7c3757e967fdb92709fa6b8d06bf83",
+      "bytes": 5759
+    },
+    {
+      "path": "game/movement_sync.gd",
+      "sha256": "30681ad5c771401d195ca8615c1c1759f48e197cc79c770fc636768ac3753616",
+      "bytes": 987
+    },
+    {
+      "path": "game/net_session.gd",
+      "sha256": "93205b052c5795c1a2461e20ec4e01916c63025203c4221a7003350c6a919655",
+      "bytes": 33096
+    },
+    {
+      "path": "game/player.gd",
+      "sha256": "47b24ba085999b161ad102c6f6b9046d96a473f3bded1f6a4ba383579c1151a5",
+      "bytes": 4095
+    },
+    {
+      "path": "game/player_input.gd",
+      "sha256": "aa159937c8ee3076dcd896bec8a8ca286386dc009604eb89ccbe3e1a184d9fb8",
+      "bytes": 669
+    },
+    {
+      "path": "game/presentation.gd",
+      "sha256": "90f2c3b234fd7024f1270b524f32c373e1b2de2395ab922ae77b6c9db5fb6d16",
+      "bytes": 2101
+    },
+    {
+      "path": "game/publisher.gd",
+      "sha256": "9889771fbfd28263b821edc2641a42d9e384b5c87e5d18a07525b9cedfe5dff9",
+      "bytes": 3885
+    },
+    {
+      "path": "game/snapshot_codec.gd",
+      "sha256": "edbe208ae9c72ab4ad009932a2ff2a2ba545b4bfcaef229cf56f0563e06ae14f",
+      "bytes": 1541
+    },
+    {
+      "path": "game/ui.gd",
+      "sha256": "3878fd56a63824805566af65846c865e94ff4a6c338c6f3a12d4be3dc57b0407",
+      "bytes": 6516
+    },
+    {
+      "path": "game/world.gd",
+      "sha256": "aba28435cf81ecd4e1b1809a1c2593a97e6a1de9c797ff7ef4658398572de396",
+      "bytes": 1766
+    },
+    {
+      "path": "project.godot",
+      "sha256": "ebd3810805a1ee307e6f6c9572a582985ed30989c8521613bccecd1738627916",
+      "bytes": 1617
+    },
+    {
+      "path": "scenes/bootstrap.tscn",
+      "sha256": "63ad3630f3f60227d17f67d9f590b19d2648bdf22b71656682ef1f79026b90bb",
+      "bytes": 256
+    }
+  ]
+}

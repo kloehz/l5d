@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8presentation99"]
+
+[ext_resource type="Script" path="res://game/presentation.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/shot_tracer.tscn" id="2_tracer"]
+
+[node name="CorridorPresentation" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="ShotTracer0" parent="." instance=ExtResource("2_tracer")]
+visible = false
+metadata/shot_tracer = true
+
+[node name="ShotTracer1" parent="." instance=ExtResource("2_tracer")]
+visible = false
+metadata/shot_tracer = true
+
+[node name="ShotTracer2" parent="." instance=ExtResource("2_tracer")]
+visible = false
+metadata/shot_tracer = true
+
+[node name="ShotTracer3" parent="." instance=ExtResource("2_tracer")]
+visible = false
+metadata/shot_tracer = true
+
+[node name="ShotTracer4" parent="." instance=ExtResource("2_tracer")]
+visible = false
+metadata/shot_tracer = true
+
+[node name="ShotTracer5" parent="." instance=ExtResource("2_tracer")]
+visible = false
+metadata/shot_tracer = true
+
+[node name="ShotTracer6" parent="." instance=ExtResource("2_tracer")]
+visible = false
+metadata/shot_tracer = true
+
+[node name="ShotTracer7" parent="." instance=ExtResource("2_tracer")]
+visible = false
+metadata/shot_tracer = true

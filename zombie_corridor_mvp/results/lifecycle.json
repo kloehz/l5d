@@ -1,0 +1,30 @@
+{
+  "runtime_source_sha256": "dc00eece5d10abb957d02c242bf1452dcd0732cfc9e910a2dd3689f2f9feb006",
+  "checks": [
+    {
+      "name": "protocol_reject_bind_and_cross_source_handshake",
+      "status": "PASS"
+    },
+    {
+      "name": "same_GUI_client_reconnect_without_duplicate_callbacks",
+      "status": "PASS",
+      "distinct_connections": 2
+    },
+    {
+      "name": "exported_Probar_local_action",
+      "status": "PASS",
+      "child_pids_terminated": [
+        13590,
+        13592
+      ],
+      "capture": "results/local-action.png",
+      "input_scope": "test-only direct game action; not native keyboard/mouse"
+    },
+    {
+      "name": "normal_play_waves_with_dormant_pack",
+      "status": "PASS",
+      "max_wave": 4,
+      "kills": 42
+    }
+  ]
+}

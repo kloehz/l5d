@@ -1,0 +1,1 @@
+Interrupted pre-metric-fix candidate: functional stages passed; benchmark A-E completed, F interrupted intentionally. Not final evidence. Breakdown fields retained the previous call duration on unscheduled ticks. Entire final suite and all eight scenarios rerun after the narrow metrics-only fix.

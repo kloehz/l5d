@@ -1,0 +1,40 @@
+[
+  {
+    "arch": "arm64",
+    "status": "PASS",
+    "runtime_source_sha256": "dc00eece5d10abb957d02c242bf1452dcd0732cfc9e910a2dd3689f2f9feb006",
+    "linux_executable_sha256": "5e950454094ef59a1270d8123a2dedb873ca795f0626597179d3dbf176fce762",
+    "image": "postgres:16",
+    "platform": "linux/arm64",
+    "scope": "Docker localhost UDP mapped only on127.0.0.1; not VPS/public path",
+    "server_hits": 65,
+    "server_kills": 15,
+    "bot_deaths": [
+      4,
+      4
+    ],
+    "bot_respawns": [
+      3,
+      3
+    ]
+  },
+  {
+    "arch": "x86_64",
+    "status": "PASS",
+    "runtime_source_sha256": "dc00eece5d10abb957d02c242bf1452dcd0732cfc9e910a2dd3689f2f9feb006",
+    "linux_executable_sha256": "728d58a3342b59a4cfc28dd2b8f10a4c267026aea3dc70edb63a34bdfc162a78",
+    "image": "debian:bookworm-slim",
+    "platform": "linux/amd64",
+    "scope": "Docker localhost UDP mapped only on127.0.0.1; not VPS/public path",
+    "server_hits": 83,
+    "server_kills": 20,
+    "bot_deaths": [
+      3,
+      3
+    ],
+    "bot_respawns": [
+      3,
+      3
+    ]
+  }
+]

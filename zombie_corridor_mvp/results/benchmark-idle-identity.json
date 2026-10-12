@@ -1,0 +1,7 @@
+{
+  "run_id": "local_idle_41f64b54b6",
+  "runtime_source_sha256": "dc00eece5d10abb957d02c242bf1452dcd0732cfc9e910a2dd3689f2f9feb006",
+  "build_manifest_sha256": "2e226b5047ec6f864b55082aca6bad38631391547b54fd35b24eb060c3460e47",
+  "warmup_s": 10,
+  "observed_s": 60
+}

@@ -1,0 +1,81 @@
+{
+  "engine": "4.7.stable.official.5b4e0cb0f",
+  "netfox": "1.35.3",
+  "artifacts": [
+    {
+      "path": "builds/linux-arm64/run_server.sh",
+      "bytes": 155,
+      "sha256": "8db5467daebbd6eedf48808a500d97b66113ff52bced403a69e6e41af0f92132"
+    },
+    {
+      "path": "builds/linux-arm64/zombie-corridor.service.in",
+      "bytes": 412,
+      "sha256": "0307fd34712b71d178ec2a382c6dae86e3854937100b142a209ef84154b1fdec"
+    },
+    {
+      "path": "builds/linux-arm64/zombie-server",
+      "bytes": 67240736,
+      "sha256": "8e7d12124b3d19577001a1976f8251569e3fdee1edc08d2dd28cfd49a355a6c1"
+    },
+    {
+      "path": "builds/linux-x86_64/run_server.sh",
+      "bytes": 155,
+      "sha256": "8db5467daebbd6eedf48808a500d97b66113ff52bced403a69e6e41af0f92132"
+    },
+    {
+      "path": "builds/linux-x86_64/zombie-corridor.service.in",
+      "bytes": 412,
+      "sha256": "0307fd34712b71d178ec2a382c6dae86e3854937100b142a209ef84154b1fdec"
+    },
+    {
+      "path": "builds/linux-x86_64/zombie-server",
+      "bytes": 73627488,
+      "sha256": "b52a311a13318a9f66965c2df6708f65d87ea1579ce86f6cb787e543987a8ad7"
+    },
+    {
+      "path": "builds/macos/Zombie Corridor MVP.app/Contents/Info.plist",
+      "bytes": 1801,
+      "sha256": "dfdd48a162b762a99ff02ada9360529b8dff55319d2614e90baabd6a268263e4"
+    },
+    {
+      "path": "builds/macos/Zombie Corridor MVP.app/Contents/MacOS/Zombie Corridor MVP",
+      "bytes": 169982576,
+      "sha256": "9a5f1aa073176c0d609887af859c17889cca631c3c59373587c0297a0eacd940"
+    },
+    {
+      "path": "builds/macos/Zombie Corridor MVP.app/Contents/PkgInfo",
+      "bytes": 9,
+      "sha256": "7e50a30efad50208a173203ced60818d693bb61266b75aa10927d1a2adce80cb"
+    },
+    {
+      "path": "builds/macos/Zombie Corridor MVP.app/Contents/Resources/PrivacyInfo.xcprivacy",
+      "bytes": 229,
+      "sha256": "0535353bb08c25b8ce5ed9ac7e442a5994f402e0f6cbc4bed668cfc63c2ceac3"
+    },
+    {
+      "path": "builds/macos/Zombie Corridor MVP.app/Contents/Resources/Zombie Corridor MVP.pck",
+      "bytes": 194064,
+      "sha256": "096334a220e50184b5b3d20f750256c97237b800776ef2c0dc26208425112763"
+    },
+    {
+      "path": "builds/macos/Zombie Corridor MVP.app/Contents/Resources/icon.icns",
+      "bytes": 67500,
+      "sha256": "779ff524928785811d6d4c61f47a26491160b1092db9b610e85fcdfd9b2d2b2a"
+    },
+    {
+      "path": "builds/macos/Zombie Corridor.zip",
+      "bytes": 59692563,
+      "sha256": "cae774a5bf60e6eab5b409f80bf0856bec557ae5118c124e0f9328122ddf67e6"
+    },
+    {
+      "path": "builds/zombie-server-linux-arm64.tar.gz",
+      "bytes": 27657837,
+      "sha256": "6b7c547d3537b6a69f9702e412e56aa4a82c96255ed0c200ca3da26123d249e1"
+    },
+    {
+      "path": "builds/zombie-server-linux-x86_64.tar.gz",
+      "bytes": 28439230,
+      "sha256": "9678ff14e42bca26662002a42fc9d8596af9b6a496339743b987773b84a8af23"
+    }
+  ]
+}

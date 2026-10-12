@@ -1,0 +1,64 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Zombie Corridor MVP"
+run/main_scene="res://scenes/bootstrap.tscn"
+config/features=PackedStringArray("4.8", "GL Compatibility")
+run/flush_stdout_on_print=true
+run/max_fps=60
+
+[autoload]
+
+NetworkTime="*res://addons/netfox/network-time.gd"
+NetworkTimeSynchronizer="*res://addons/netfox/network-time-synchronizer.gd"
+NetworkRollback="*res://addons/netfox/rollback/network-rollback.gd"
+NetworkEvents="*res://addons/netfox/network-events.gd"
+NetworkPerformance="*res://addons/netfox/network-performance.gd"
+NetSession="*res://game/net_session.gd"
+
+[display]
+
+window/size/mode=2
+window/size/viewport_height=720
+window/size/window_width_override=960
+window/size/window_height_override=600
+window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/netfox.internals/plugin.cfg", "res://addons/netfox/plugin.cfg")
+
+[netfox]
+
+general/clear_settings=false
+time/tickrate=30
+time/sync_to_physics=true
+time/max_ticks_per_frame=3
+rollback/history_limit=16
+rollback/input_redundancy=3
+rollback/enable_diff_states=true
+rollback/input_delay=0
+rollback/display_offset=0
+events/enabled=false
+logging/netfox_log_level=3
+
+[physics]
+
+common/physics_ticks_per_second=30
+common/physics_jitter_fix=0.0
+3d/physics_engine="GodotPhysics3D"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

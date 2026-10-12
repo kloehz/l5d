@@ -1,0 +1,7 @@
+{
+  "run_id": "local_dormant20_9a1b472336",
+  "runtime_source_sha256": "c889dad348d7086df393f5673981bd0b4ad2635a739ea49867a7f61184941ac7",
+  "build_manifest_sha256": "e192c0365fef84ede62adf4c1cb3315a75dad527e8487e37897e6516761d99e7",
+  "warmup_s": 10,
+  "observed_s": 60
+}

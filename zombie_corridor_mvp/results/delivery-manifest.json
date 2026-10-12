@@ -1,0 +1,1071 @@
+{
+  "status": "PASS",
+  "runtime_source_sha256": "6f5d984f35149ff17fb810b1caee0b1a788dd875d09633b4b0d4cc951d232b6f",
+  "build_manifest_sha256": "684b6b6428f51e1db2dd9c4d498769057fe2fab0654eabc1850cb3398e8b3839",
+  "source_artifact_tree_sha256": "e7115388b7ec5c56ba32e0b7602b8283c32af415717d9e252431facb9d68c562",
+  "source_files": [
+    {
+      "path": "Probar local.command",
+      "sha256": "7b7d746fbfe72b1be491c28862eb6452bacd78c83115e714cc6f35185b44c5b2",
+      "bytes": 128,
+      "mode": "0o755"
+    },
+    {
+      "path": "README.md",
+      "sha256": "be0060f258ed81b83626c7b099aa0a2e79e639fd7405bcce688697168eb73678",
+      "bytes": 5142,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/CONTRIBUTORS.md",
+      "sha256": "a0af080d24ff8b15d4237f07981d3b753166db9e33817ccff1eb85568322b02a",
+      "bytes": 1266,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/LICENSE",
+      "sha256": "56b43fff9d16012f7169581442ba2fc807a7dd9baa46bdc12fbe7384fb4618e3",
+      "bytes": 1054,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/README.md",
+      "sha256": "3babe7a0a03f1dffb565c2fa5f57de316dea0fb3fb290bf1789dcb334ef4cb65",
+      "bytes": 1032,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/encoder/diff-history-encoder.gd",
+      "sha256": "feb8f593c9c70b601f6a89737aa344ac7944e70ab52deec1c3e9093b79e87a54",
+      "bytes": 4197,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/encoder/diff-history-encoder.gd.uid",
+      "sha256": "05c6e7f75d190c2db11aaf7a5fa383e7ded7383c84142695ad603e42d21df1db",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/encoder/redundant-history-encoder.gd",
+      "sha256": "7d58472564fffd30cecfe74417306c0f10f19040e2cdea8347bb4cfec51d9037",
+      "bytes": 3233,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/encoder/redundant-history-encoder.gd.uid",
+      "sha256": "49084b187bc163384d868a5a8a0f34dd565fdf3cd3d09463ee4c8da144ee08e3",
+      "bytes": 19,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/encoder/snapshot-history-encoder.gd",
+      "sha256": "8d58ea31584e7e66e2961e2dce9439dbe5234ff8347dd761bb31616fa2e1de6b",
+      "bytes": 2085,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/encoder/snapshot-history-encoder.gd.uid",
+      "sha256": "4f3ce40de69d96c3050f9a15a2901f121fa0afa3d6d301f6fec0978e0ac9d40f",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/icons/rewindable-action.svg",
+      "sha256": "fde7bd534b7925ab2ce9b502ad7ac379dbda388bc3bf636cf699a397a38e3a7e",
+      "bytes": 3245,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/icons/rollback-synchronizer.svg",
+      "sha256": "5716e2dac5be8aed5050e87517007308d0cfd5a234fa0a9b2c9aaf41416a24ca",
+      "bytes": 2474,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/icons/state-synchronizer.svg",
+      "sha256": "8989ce51b0dfe556c18bf182edab62b8523ffcf37baa60d6f4704c163365c389",
+      "bytes": 2634,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/icons/tick-interpolator.svg",
+      "sha256": "9f2b1a64622435c61e69d5613fe2e251dbc4d3813ae743538582ca72682f39a0",
+      "bytes": 2581,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/interpolators.gd",
+      "sha256": "c474a6a4fc701ea27769b70cc84e937c07c9d69c291a6926f0b9dcd9b00d765d",
+      "bytes": 3213,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/interpolators.gd.uid",
+      "sha256": "0778f2fdd8dcf072cc63bdbb069cda37d4cc8020e6c229a39e2a4405bec36aad",
+      "bytes": 19,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/netfox.gd",
+      "sha256": "dc5c523a6ecb1885e400fabe048d8a213914c499729ffb0243da72abe6919e6c",
+      "bytes": 4791,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/netfox.gd.uid",
+      "sha256": "3b8fe0e8078c4695009f2d2ad94a93cd05b73db5ab4f1bcfb97c9296eb98a3f2",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/network-events.gd",
+      "sha256": "a34c7462b063e25ee79a4f22b7c2887af832e8624b35729f6e847637596e7e29",
+      "bytes": 4449,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/network-events.gd.uid",
+      "sha256": "3943988c325950337bc9cd7d8446cad9df5eb2649f1f366a1c227bcc12678601",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/network-performance.gd",
+      "sha256": "16d58fa23f9addaaef06d7472abb1cba28487aabdc8f01acd143dedda96cdf04",
+      "bytes": 6683,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/network-performance.gd.uid",
+      "sha256": "f76c3b27ac371079912cb90aab0f815a6577beb8e46931f7685a4e94840a1bab",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/network-time-synchronizer.gd",
+      "sha256": "e75b4e3bd45c1b1ae6780cbd2f94c74b129548d4dc079593878659f7e03ac2ee",
+      "bytes": 8706,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/network-time-synchronizer.gd.uid",
+      "sha256": "e4095669edfda06aaf3222f851e1046889e6ac8a3cd7409b64bbb812fa751cb7",
+      "bytes": 19,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/network-time.gd",
+      "sha256": "bc21dd2f94e757632f9af364a03dbcb1d4c8f23c3425ad18b12bdd7df7dd3a9f",
+      "bytes": 19971,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/network-time.gd.uid",
+      "sha256": "540edb3c272c33680848a91d2b6f70e7d3f77c480624a0056ed2787d88e63a47",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/peer-visibility-filter.gd",
+      "sha256": "4cb3bb98faa4a336f36116ea56214cd52e8b33790465521e244f3193fbe778f5",
+      "bytes": 6772,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/peer-visibility-filter.gd.uid",
+      "sha256": "0d155459ada974dc5693781b8905d3d75188fab8ad588dca31ad8679b20512b2",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/plugin.cfg",
+      "sha256": "c8082fd3bf9f7f870f59e49c9e9d7a33040a38e320390688ee7ffdf7e6f27578",
+      "bytes": 148,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/properties/property-cache.gd",
+      "sha256": "65d62f48f281348f1e979f285c322de1f01c8e1fe00ade612cd76d77b55ffc6b",
+      "bytes": 718,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/properties/property-cache.gd.uid",
+      "sha256": "bd7292c1195003f973ce40d122cc1d2373e2ab197c1bb88d0d35fbd4c1053e0c",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/properties/property-config.gd",
+      "sha256": "c1ee0b93fbb3d5f0c664f8ab5c14d9cf74e2adbc7555d798e6b6b5fe0c09cf5e",
+      "bytes": 1122,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/properties/property-config.gd.uid",
+      "sha256": "559ac00ff68f846a197ab35246a0f6e71a615f3020d85bcd4bbb8fc0ddd826d6",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/properties/property-entry.gd",
+      "sha256": "a91899de9bb0c33ef1f8f89c040eebceb51ca4f8438c57fae13b316b1cf55370",
+      "bytes": 1206,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/properties/property-entry.gd.uid",
+      "sha256": "bebaeb4b0ea329369eba1873bc86bc2f05526b7db1061b9ee0bb92e0e0c88321",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/properties/property-history-buffer.gd",
+      "sha256": "b5ca5334b6bef1052dd59394b6bfe3bca0ff1b1647f816c74e876122bef01cbf",
+      "bytes": 818,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/properties/property-history-buffer.gd.uid",
+      "sha256": "bf338bc6d4bf2d5e9af30e2271d281bc0fe87a350a6649af63abd65858b3654f",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/properties/property-snapshot.gd",
+      "sha256": "01837ddfc3fec605c472171dbf5a83d96f5afb5a500a3406f3d6efccd429b372",
+      "bytes": 2435,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/properties/property-snapshot.gd.uid",
+      "sha256": "d58c13f2896f1f731f73ee8dd7484d7eeac97166abbd5724848a1a156fde80fa",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rewindable-action.gd",
+      "sha256": "6703ac3b37d4fe1c2f0911314dfbe12d78b32de56bcfd3e5a374ad5bdbdfbb61",
+      "bytes": 7949,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rewindable-action.gd.uid",
+      "sha256": "9221948fd24d62769504e1e3dfad8701e71359a9b79054d5f96ad1209d586ac3",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rollback/composite/rollback-history-recorder.gd",
+      "sha256": "7de7e91a86d340af582aca3c15f00105df8146e1af2118b211e396153a130567",
+      "bytes": 3706,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rollback/composite/rollback-history-recorder.gd.uid",
+      "sha256": "7c0717180167f846c2f2f74ff2c363fdd7399d2cb8bcaf50ad96c42f05efdfca",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rollback/composite/rollback-history-transmitter.gd",
+      "sha256": "1cc2fe3ba3a49514ac3063d41534b57cd7fe08eabdf14c0494c00875f14a222a",
+      "bytes": 10111,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rollback/composite/rollback-history-transmitter.gd.uid",
+      "sha256": "d087e7662138c8df7f7fc34514b3e3a4153e18e0d85fdd73e1383a07340e5b62",
+      "bytes": 19,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rollback/network-rollback.gd",
+      "sha256": "d48b1603b72dfe3690c6ee7005378e68b8f84ad069c82524a07ce7fe8af77fd7",
+      "bytes": 13248,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rollback/network-rollback.gd.uid",
+      "sha256": "da03032ad2ac7fff9c6058587d2983d8d7517ea5e5e7bc3e2b00d1afd6027b87",
+      "bytes": 19,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rollback/rollback-freshness-store.gd",
+      "sha256": "7042dab60f89def1630636cf6c30da785772a37b658c7ba94c204dde389344a7",
+      "bytes": 689,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rollback/rollback-freshness-store.gd.uid",
+      "sha256": "353758ac5c4aa65c0d281351c2df24f0063bd8da9544be89b64dad894930cee3",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rollback/rollback-synchronizer.gd",
+      "sha256": "21ec38d988233575e2a4f6a205fc47d436e97c6247b8884fc8e3ca8baeafb235",
+      "bytes": 16044,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/rollback/rollback-synchronizer.gd.uid",
+      "sha256": "ae79025d877261b375b362bc3a31c903f12d546d8ec2afcbcfe5f2a15839eb22",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/serializers/tickset-serializer.gd",
+      "sha256": "56fc4c235979732006d84eaed7e5702e93a271d4797886c1eced68c9dfceaa21",
+      "bytes": 1135,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/serializers/tickset-serializer.gd.uid",
+      "sha256": "850feae1ee7e937279e9af29e7478381c66d3bda7fd023e3550d1e8ba972acb6",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/state-synchronizer.gd",
+      "sha256": "3461fefbd8cba5a21e5ecf6dde439d3afbd6a9ad66f0818466ba984c40b7ca4a",
+      "bytes": 9439,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/state-synchronizer.gd.uid",
+      "sha256": "64e0ad6fad322c740c89512264f34f8ace9603eedb8a66d8d47283d0c295a04e",
+      "bytes": 19,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/tick-interpolator.gd",
+      "sha256": "7afa2010c6731fa8bd720275a96bec3b0fe871313d5f63434af6f5e6815e392e",
+      "bytes": 5093,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/tick-interpolator.gd.uid",
+      "sha256": "bafcb7231753735b5a85ebd1012cd9a732aafdad2fd95f5f660134f728fccf4a",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/time/network-clock-sample.gd",
+      "sha256": "ebec08893aeae804b3fa8929c2972fd8461f072ac93eeb930f7781ad00973b74",
+      "bytes": 674,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/time/network-clock-sample.gd.uid",
+      "sha256": "4cdf6521bad23bf23d6ab6b97f0c20f3f95b2532ec55ec6beb98ef06a1965eef",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/time/network-clocks.gd",
+      "sha256": "acc2971269fdeba3253fc5dea266ebf1bc3e8acc73f9f67a4172326d46e0b733",
+      "bytes": 907,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/time/network-clocks.gd.uid",
+      "sha256": "c7288b5beb73c28d2611fb9847202883fbeeb0821629af84592be4b5344b406d",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/time/network-tickrate-handshake.gd",
+      "sha256": "8079b75e8d6a391623b32248f1a6ea47dbd77cb576a75aaf073339cba646d3ad",
+      "bytes": 3384,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox/time/network-tickrate-handshake.gd.uid",
+      "sha256": "97a738acc6caabab1dc0c3b36e01cecbd76e6ca54560175663536b0d0ab1b34b",
+      "bytes": 19,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/CONTRIBUTORS.md",
+      "sha256": "a0af080d24ff8b15d4237f07981d3b753166db9e33817ccff1eb85568322b02a",
+      "bytes": 1266,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/LICENSE",
+      "sha256": "56b43fff9d16012f7169581442ba2fc807a7dd9baa46bdc12fbe7384fb4618e3",
+      "bytes": 1054,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/README.md",
+      "sha256": "9e75ff1c6ce926356a08fd94632682dd5134ab1b7d339a32c174d09be43f1fe0",
+      "bytes": 205,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/bimap.gd",
+      "sha256": "fcf076e28f74a8eeb2a24f76ba5b6f16729afd72b5aeeda55296f31d4ed639a6",
+      "bytes": 1278,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/bimap.gd.uid",
+      "sha256": "3ad016798a18d5062841a8a2c3a56657734da5cb004710e7ec778b012fd78e23",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/editor-utils.gd",
+      "sha256": "b711cdbcc2fc0be0044de5b1ff6386abbd8cd1460f20c68439a386ddea345cf8",
+      "bytes": 1541,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/editor-utils.gd.uid",
+      "sha256": "1093de4924cca62077ee4094686e0d2ec1d6b44524552ccc48bcb983b1cbd63a",
+      "bytes": 19,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/history-buffer.gd",
+      "sha256": "804a62fab4ea9f0c2b2e5982d85f90510cb35fb3d1a94d2fedeee5007272f2d2",
+      "bytes": 1332,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/history-buffer.gd.uid",
+      "sha256": "38cc98c2990464c868aeb208f9a853b0d8f281b05d427cd2036afeca6aa8183d",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/logger.gd",
+      "sha256": "807ad9df4304cb3061a9730883b54d0bc1896f704d85b1c31a83befd9fe5b92b",
+      "bytes": 6345,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/logger.gd.uid",
+      "sha256": "13ab29184db8f15b35f864ee737ceae7db65d2f7331b9de3aa62f0b1b96364ef",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/plugin.cfg",
+      "sha256": "bac2560b948f683ceeeeb1d3dade4c7691ac1562a0d69210a6dcb9f7f9387494",
+      "bytes": 158,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/plugin.gd",
+      "sha256": "9a1528d0b741ba5ba6e01b776e19cade981dfccd0c70463ea1ac4db87230fed8",
+      "bytes": 883,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/plugin.gd.uid",
+      "sha256": "bd84a0d2a221c69a46f9b957ce792c3b009d34f2c61a525ca0f9df51af277775",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/ring-buffer.gd",
+      "sha256": "7c6fdf59b18a21772f67dd67dcfe62841355208043a22ba87e0d0564ab7af551",
+      "bytes": 515,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/ring-buffer.gd.uid",
+      "sha256": "1555049c4b04d441ae09045cbf211980f364fcbfd150436f293482af5fea0701",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/set.gd",
+      "sha256": "9318b108b9048d0245ec805e0405dc013f7c388a9d36ae5e45bcca01f4c54668",
+      "bytes": 1101,
+      "mode": "0o644"
+    },
+    {
+      "path": "addons/netfox.internals/set.gd.uid",
+      "sha256": "8186aee7ce8bdb7e504d052ef76f81dd5c5f32041269b8f2a9dc922dfcfe2934",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "config/default-config.json",
+      "sha256": "2ea32e2c3bf17ef73e2371c8826d4b0cf3dd22a03eccea71dc0126841b8d5935",
+      "bytes": 1081,
+      "mode": "0o644"
+    },
+    {
+      "path": "dependencies.lock.json",
+      "sha256": "e1f298eecaaf16c813f85d453a5b02598a134bbb7104d0aa33aa0a8d0f2014fb",
+      "bytes": 14795,
+      "mode": "0o644"
+    },
+    {
+      "path": "docs/BOOTSTRAP_HANDOFF.md",
+      "sha256": "f893015c715e51831c37aeaf03e649ea191f2a46c55597c9489746ea0e6f0462",
+      "bytes": 13188,
+      "mode": "0o644"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_HANDOFF.md",
+      "sha256": "784c2c852faf7f9bf40f3638a51b2a3badf18a9942539a6d31e43b5a4f0c15ed",
+      "bytes": 10178,
+      "mode": "0o644"
+    },
+    {
+      "path": "docs/MOVEMENT_DIAGNOSIS.md",
+      "sha256": "ff2853302a1174a29bf1992f725c4599b14ed27dd6e124ebc80f4222734cef68",
+      "bytes": 6791,
+      "mode": "0o644"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "sha256": "95f70287a01f1cda1e765e45f5c57375c266c13cdf7e3c02b8d17c653c33ffa1",
+      "bytes": 11919,
+      "mode": "0o644"
+    },
+    {
+      "path": "export_presets.cfg",
+      "sha256": "d2707999c652a7d2f46d5fc8c4ada20d25be3447f127c21026087fbf92326622",
+      "bytes": 1980,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/bootstrap.gd",
+      "sha256": "76eeee22e59dc487b04049f8151eaefc86af5903bcd06de94026e5ab77c334d0",
+      "bytes": 357,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/bootstrap.gd.uid",
+      "sha256": "69a25161b8c4954c13b371c435d161ab066c4122b6d1d9dc8ee935e3d72555cd",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/client_store.gd",
+      "sha256": "86c2c54d865e6e4d0056aa5e41e46d6d51793b8fc04b29da8816ba0d4143be70",
+      "bytes": 1202,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/client_store.gd.uid",
+      "sha256": "8f66e1e9919be68eecf883cea93382e7db0655bd839c8aed47d48902dc9510ba",
+      "bytes": 19,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/combat.gd",
+      "sha256": "87e6b3393749f3fc3ba6d01a4bace12c7fe84d61aa21c75cc768d7e22ab9dbbe",
+      "bytes": 3154,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/combat.gd.uid",
+      "sha256": "813f4162b2a0c3368026d01c5f1ee3f3409475436faa278a1a47ec43def82a69",
+      "bytes": 19,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/geometry.gd",
+      "sha256": "4825c0b4d82902b3e5b94fde54106bbe8f422f8ba80098855fd1f1075ae8faf6",
+      "bytes": 2253,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/geometry.gd.uid",
+      "sha256": "4c6d9bfd5332dba290d54958fdf95d0ede4fa5a81467576082fecac0c92b09ab",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/mob_world.gd",
+      "sha256": "da9247495fab093ec120c18d10c187d52c7c3757e967fdb92709fa6b8d06bf83",
+      "bytes": 5759,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/mob_world.gd.uid",
+      "sha256": "f6d4a67d78c9c089d3b6f9cf90612681b8d0b20b7f63c241ad719c720126162e",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/movement_sync.gd",
+      "sha256": "30681ad5c771401d195ca8615c1c1759f48e197cc79c770fc636768ac3753616",
+      "bytes": 987,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/movement_sync.gd.uid",
+      "sha256": "181c0bde2a21072e38bae08646a8bc6fddc5fe8236e43030019b502c4632a054",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/net_session.gd",
+      "sha256": "6760a87dfc1784711d33b5c1700196ffb9fd33c8aabc52845983f6958fe2fd22",
+      "bytes": 35300,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/net_session.gd.uid",
+      "sha256": "26d88c52ab641dc7dbcc43cf4f22dd0fcee9591d65f4cc294d776bad3b956ca1",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/player.gd",
+      "sha256": "f62ed756f17304ff2fbf0574e0ee5bb414c67a6914bed4aab952dc50d48d8f81",
+      "bytes": 4209,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/player.gd.uid",
+      "sha256": "59f8c40221346195c5ab941efe8da0fd951e1507971192fb5d0897aac4239f8e",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/player_input.gd",
+      "sha256": "aa159937c8ee3076dcd896bec8a8ca286386dc009604eb89ccbe3e1a184d9fb8",
+      "bytes": 669,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/player_input.gd.uid",
+      "sha256": "39e2848250b2516daddce0327a11c6861ed80429e7aa0841d7fe7b2f23eac159",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/presentation.gd",
+      "sha256": "90f2c3b234fd7024f1270b524f32c373e1b2de2395ab922ae77b6c9db5fb6d16",
+      "bytes": 2101,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/presentation.gd.uid",
+      "sha256": "2c6452933a1026e1890343986029994f1f794a8b19042ce3e44bc912ab0548e7",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/publisher.gd",
+      "sha256": "9889771fbfd28263b821edc2641a42d9e384b5c87e5d18a07525b9cedfe5dff9",
+      "bytes": 3885,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/publisher.gd.uid",
+      "sha256": "21d2b923e04b9501b0abbf38903144514c0072e6e6aa7f7690d7709499cd600e",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/snapshot_codec.gd",
+      "sha256": "edbe208ae9c72ab4ad009932a2ff2a2ba545b4bfcaef229cf56f0563e06ae14f",
+      "bytes": 1541,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/snapshot_codec.gd.uid",
+      "sha256": "4b0823a740e249048f7464856275afd874ae925d0b7df36cbed29e1a15377d80",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/ui.gd",
+      "sha256": "3878fd56a63824805566af65846c865e94ff4a6c338c6f3a12d4be3dc57b0407",
+      "bytes": 6516,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/ui.gd.uid",
+      "sha256": "59cc261e0e5a9b030b423468a3b7f92769ed37697c349de794f3977f531daf93",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/world.gd",
+      "sha256": "aba28435cf81ecd4e1b1809a1c2593a97e6a1de9c797ff7ef4658398572de396",
+      "bytes": 1766,
+      "mode": "0o644"
+    },
+    {
+      "path": "game/world.gd.uid",
+      "sha256": "0ebd65477f41bc1af84a8e65cab86da973ee8bc4bb27339459420e5818d4671f",
+      "bytes": 20,
+      "mode": "0o644"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "ebd3810805a1ee307e6f6c9572a582985ed30989c8521613bccecd1738627916",
+      "bytes": 1617,
+      "mode": "0o644"
+    },
+    {
+      "path": "scenes/bootstrap.tscn",
+      "sha256": "63ad3630f3f60227d17f67d9f590b19d2648bdf22b71656682ef1f79026b90bb",
+      "bytes": 256,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/bootstrap_dependencies.py",
+      "sha256": "8b12260add7e421ddbfd5886f432107839b8c6827bb46a06e69c9e7214316714",
+      "bytes": 4287,
+      "mode": "0o755"
+    },
+    {
+      "path": "scripts/capture_release_frames.py",
+      "sha256": "0652625910e92972a0edc0b4364c210b5dd9b24d988d8f7abb7d6ef20ad375b1",
+      "bytes": 920,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/deploy_vps.py",
+      "sha256": "4c3693d1dd71599785ac582802402a9a690708bc919a61fe3bc7f56ab2842dea",
+      "bytes": 3284,
+      "mode": "0o755"
+    },
+    {
+      "path": "scripts/diagnose_four_player.py",
+      "sha256": "a16e225b9a2177d09221a33680461ecfd26cc43b612082af1a74f510a94458c9",
+      "bytes": 1768,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/export_builds.sh",
+      "sha256": "4bec439defbd3784b54f10922a85e166d74dc8158413421a00d703ce9f8cd121",
+      "bytes": 777,
+      "mode": "0o755"
+    },
+    {
+      "path": "scripts/package_builds.py",
+      "sha256": "14ccd950a4d4dab5225b317476ecf13d4ae8f4d17406f3f228a44ccd44f850d3",
+      "bytes": 968,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/run_benchmark.py",
+      "sha256": "ed58d2365f929c46af20445abc1425abca94e32a9c26ceb3e9eac6ce5293e176",
+      "bytes": 6107,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/run_client.sh",
+      "sha256": "e9f152e4270394f03dd1d863c1bcab3592426bbb1b798199fa9b1a6419fe85c7",
+      "bytes": 172,
+      "mode": "0o755"
+    },
+    {
+      "path": "scripts/run_final_suite.py",
+      "sha256": "d7a5048b4b26792c07bf97dab6225c0756331ed8589069cf2d9cbcdb931784a9",
+      "bytes": 2385,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/run_headless_smoke.sh",
+      "sha256": "ff6122a5639a29a2ba5407a5dd3938c4fc73067cd0a68b5f4d1963b3774478c1",
+      "bytes": 131,
+      "mode": "0o755"
+    },
+    {
+      "path": "scripts/run_lifecycle_checks.py",
+      "sha256": "3ed8ff35b1a5710cca7f91bcf25e4dd57eefe260f24929cbeb19d055ead6fa84",
+      "bytes": 4719,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/run_linux_transport.py",
+      "sha256": "71c53537a8c602b04fd6eb1273a503ad66721c5a78ebfb21269b77777ee3dcfe",
+      "bytes": 3307,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/run_local_demo.py",
+      "sha256": "ad412f1412841e071cc5b8e84b7a2cf961cd9610be19f03eae3148dec3b7b48c",
+      "bytes": 1370,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/run_packaged_server.sh",
+      "sha256": "8db5467daebbd6eedf48808a500d97b66113ff52bced403a69e6e41af0f92132",
+      "bytes": 155,
+      "mode": "0o755"
+    },
+    {
+      "path": "scripts/run_server.sh",
+      "sha256": "70c44e38579ce6b956cd8d608bbe6bc11c146e5d1940fb150729819046ca0374",
+      "bytes": 183,
+      "mode": "0o755"
+    },
+    {
+      "path": "scripts/run_validation.py",
+      "sha256": "21687fab6834535a55d755b4ff0bd6214bcda693d8b77173f89cbbaae37f52ce",
+      "bytes": 6823,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/runtime.py",
+      "sha256": "78adb830cfb9a05821dfd95d886f09e332bf8dce1025687c7afe4af332487f83",
+      "bytes": 2575,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/source_identity.py",
+      "sha256": "e2d96edc3bf9c2cb31ca9324f672de24b6ae78fd3ef4330bddd01cd3b1fb88dd",
+      "bytes": 827,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/summarize_metrics.py",
+      "sha256": "ce3647bcb04217f783db0ce2bb1c52c99573d33ea5e93314bd8783cf459146d6",
+      "bytes": 8825,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/transport_smoke.py",
+      "sha256": "b82264271474c3bbac26822dba12a14799d9f174fb438c1aa374ce9866b3abb3",
+      "bytes": 1471,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/udp_proxy.py",
+      "sha256": "e0a8eb880f625920de0a5801d75ebb764934523a5f242baf767371030222b61d",
+      "bytes": 2233,
+      "mode": "0o644"
+    },
+    {
+      "path": "scripts/zombie-corridor.service.in",
+      "sha256": "0307fd34712b71d178ec2a382c6dae86e3854937100b142a209ef84154b1fdec",
+      "bytes": 412,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/invariants.gd",
+      "sha256": "c3c940721a52de899111b5e413f1baeffb3cb19d6515fa40fb18f5e4036adada",
+      "bytes": 9034,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/invariants.gd.uid",
+      "sha256": "91cf69b3ac8a19dfd39255527d4eaf9e9433b1191d0c6b11fb14eadcf3651864",
+      "bytes": 19,
+      "mode": "0o644"
+    },
+    {
+      "path": "tests/invariants.tscn",
+      "sha256": "8ef181e7d5c1bea1cf14f3760592ebb23932d582451876a74f6f309f3a8ded87",
+      "bytes": 163,
+      "mode": "0o644"
+    }
+  ],
+  "final_evidence_files": [
+    {
+      "path": "results/adaptive-diagnosis-default.json",
+      "sha256": "1dd6cb40172166f98641f3f613f196dcec32a2831f3a9c3bf2b625528c0ad939",
+      "bytes": 163
+    },
+    {
+      "path": "results/adaptive-diagnosis-interval100.json",
+      "sha256": "40449088c30f1643c24445a46399f6f9e653fd5440a3dd8df0019952e8e65c26",
+      "bytes": 699
+    },
+    {
+      "path": "results/adverse100-proxy.json",
+      "sha256": "032ce35f7ce04a794f736708f072127a95c7957a89c970f9b1339df9d4c26587",
+      "bytes": 20262
+    },
+    {
+      "path": "results/adverse150-proxy.json",
+      "sha256": "d29b4929e1d4a72f151b62b031127eeb12827289e67fc8a3aa0becabb9783097",
+      "bytes": 46090
+    },
+    {
+      "path": "results/benchmark-active20-identity.json",
+      "sha256": "24870d16e09ddc6337524b958088f31c48500db550782ef4aecd101fdb5e84c3",
+      "bytes": 272
+    },
+    {
+      "path": "results/benchmark-active50-identity.json",
+      "sha256": "fa9e99c5820d0611416605a78a199433790fcf60eaada2e6dc522dc57e1cca22",
+      "bytes": 272
+    },
+    {
+      "path": "results/benchmark-build-SHA256SUMS",
+      "sha256": "4025d78697b7ed9f73de5bf85905f0317fed70edce39db77942e8f93423c8159",
+      "bytes": 1738
+    },
+    {
+      "path": "results/benchmark-build-manifest.json",
+      "sha256": "684b6b6428f51e1db2dd9c4d498769057fe2fab0654eabc1850cb3398e8b3839",
+      "bytes": 2869
+    },
+    {
+      "path": "results/benchmark-build-manifest.sha256",
+      "sha256": "7d76973bb8b1a4f646bbef9921a38cdbe6865815227c6dac108b93fcb43910fa",
+      "bytes": 87
+    },
+    {
+      "path": "results/benchmark-combat-identity.json",
+      "sha256": "1fec7057c59efba1f482af85c7ada0801542afdfd61eaf8380bc92b2651cb98a",
+      "bytes": 270
+    },
+    {
+      "path": "results/benchmark-dormant100-identity.json",
+      "sha256": "9c2c155e6efe7603801e248c473a96d79ffc8db0394fdaa76e56475892cbd884",
+      "bytes": 274
+    },
+    {
+      "path": "results/benchmark-dormant20-identity.json",
+      "sha256": "1720c106632237946fd7d8f9d134fcbb98fda9e1b9d6612c84f5a110a057a61f",
+      "bytes": 273
+    },
+    {
+      "path": "results/benchmark-first-attempt-build-SHA256SUMS",
+      "sha256": "352c548c207cd1310c0595330c65e90be20ecfd18c5b0d0ad6fd3565ee139d0a",
+      "bytes": 1738
+    },
+    {
+      "path": "results/benchmark-first-attempt-build-manifest.json",
+      "sha256": "50d49bbb84f24a5fff57b3071073787bde130232cd7f13989a2e95e6a5558466",
+      "bytes": 2869
+    },
+    {
+      "path": "results/benchmark-idle-identity.json",
+      "sha256": "8e035592d15a8347789700fbe257cd940051b3d210aa7f75e6783e8357681f3c",
+      "bytes": 268
+    },
+    {
+      "path": "results/benchmark-machine.json",
+      "sha256": "77f62d2537fbed4690a2141f12d8e29bd58988bf7379c5f36a2c22a92e9d6bba",
+      "bytes": 391
+    },
+    {
+      "path": "results/benchmark-player-identity.json",
+      "sha256": "6b8101e98eedd61470225318e31004fe8493a19a7d02bfa69b1d88948d43c677",
+      "bytes": 270
+    },
+    {
+      "path": "results/benchmark-split-identity.json",
+      "sha256": "e049f62ace6620aac844aaedb239e1b2df6334a7018a80af02ae2e0c6daa3b50",
+      "bytes": 269
+    },
+    {
+      "path": "results/benchmark-summary.json",
+      "sha256": "630d48f3057ed0585fa2dca3a7668b902d712e7c327c59948939f711f809eb4f",
+      "bytes": 5501
+    },
+    {
+      "path": "results/benchmark.csv",
+      "sha256": "406557e39984a64cdadc4f6423eee5fb0a9cbb743d077bc04a2154fbf2edab0b",
+      "bytes": 2083
+    },
+    {
+      "path": "results/benchmark.md",
+      "sha256": "b710c22ebbe06bb94b3b0156b74192224ed3d35d32332add42637cdd0438f641",
+      "bytes": 1778
+    },
+    {
+      "path": "results/final-suite-failed-transport.json",
+      "sha256": "a37fa71490bcc9aae44630e25ad35afe994c33e8f3c2f3b55d6d5cad66bbc5f4",
+      "bytes": 1097
+    },
+    {
+      "path": "results/final-suite.json",
+      "sha256": "4dca8f6c9bfc70182229a4abfa74cce5071cdfc6152661f857a8ede055478c96",
+      "bytes": 2784
+    },
+    {
+      "path": "results/gameplay.png",
+      "sha256": "9c982532a8f7d12e43cfbf64b596f8394062b3d8c0eef5819fdd2e77ba3d6bd4",
+      "bytes": 90090
+    },
+    {
+      "path": "results/gameplay.png.import",
+      "sha256": "de68c78241e96bff800bf80a48bde8088f6d02ace6803f3f8d336486b29775a6",
+      "bytes": 936
+    },
+    {
+      "path": "results/lifecycle-before-weapon-config.json",
+      "sha256": "c386df948b0ba73695f03ae7565f7faecf27cf9830340a94fd517a0bda958e23",
+      "bytes": 624
+    },
+    {
+      "path": "results/lifecycle.json",
+      "sha256": "1469382f893fee01d73e172cdfa70cd0a5da04f36ac3e141be2935a0ed1301f4",
+      "bytes": 764
+    },
+    {
+      "path": "results/linux-transport.json",
+      "sha256": "54ee24373880a3246aa4962eec52aef94078e265c49ad98c5c6b18ce804fe319",
+      "bytes": 1063
+    },
+    {
+      "path": "results/local-action.png",
+      "sha256": "2876f90b7fc17ff65ca0f0914959f4ef11abdc9c15636ba1526cedb96892db88",
+      "bytes": 51363
+    },
+    {
+      "path": "results/local-action.png.import",
+      "sha256": "eb9a3bf6873fa4df7bb136e34c09c87960fa002e777ee55d087ebab26410b580",
+      "bytes": 948
+    },
+    {
+      "path": "results/menu.png",
+      "sha256": "4f4e342f7333c76478ef6e59095570d5cad2717c6ef19df8755986529924af6e",
+      "bytes": 39015
+    },
+    {
+      "path": "results/menu.png.import",
+      "sha256": "c5548fb1a1a6b8445ce4a91c4c76b023abc62f2f0b1671d2ce2f9f7baec78764",
+      "bytes": 924
+    },
+    {
+      "path": "results/movement-diagnosis-default.json",
+      "sha256": "a5879478408033584c98ce3aa7bf75e9b2193ee7cee74a49a8202ead8121a41c",
+      "bytes": 46
+    },
+    {
+      "path": "results/movement-diagnosis-fixed.json",
+      "sha256": "7dcf416407ed4d81fbf93e92b325bef3eea19640386b7e901428c3e6b8c242c3",
+      "bytes": 3015
+    },
+    {
+      "path": "results/runtime-source-manifest.json",
+      "sha256": "e2da0085386ec7dc7ca23ddfd52f51f7e17667edc3b49639811df01e0eb5caea",
+      "bytes": 11008
+    },
+    {
+      "path": "results/source-manifest-before-final.json",
+      "sha256": "6c513af23c3c5ea6f69dce84d745b6cd727a4f98c2d6a95b56f3f6dc65b4563d",
+      "bytes": 2991
+    },
+    {
+      "path": "results/validation-before-final.json",
+      "sha256": "634a1453efa2a028b86ff8113f1012e031a4a1280521f192ffe77d48044075e9",
+      "bytes": 3379
+    },
+    {
+      "path": "results/validation-before-weapon-config.json",
+      "sha256": "f4b6df690883c5c05159a50eea00f6d6943ea0e8f943c4902cc312c2c704df55",
+      "bytes": 3997
+    },
+    {
+      "path": "results/validation.json",
+      "sha256": "242a7beda7e331959e7d60c33e367c81a22245adceaad873cccbc314e2b6db23",
+      "bytes": 4005
+    }
+  ],
+  "scope": "local macOS; Linux Docker actual exports; no VPS/public route or native keyboard/mouse claim",
+  "checks": "frozen suite43 invariants +8 acceptance groups +4 lifecycle +2 Linux +GUI render/launch +8 benchmarks; all hashes read back; helper unchanged; Python AST/shell syntax; own process inventory separately logs/delivery-cleanup.log"
+}

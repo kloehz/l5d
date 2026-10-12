@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cm5648c80mn02"
+
+[deps]
+
+files=["res://results/benchmark.scenario.translation", "res://results/benchmark.tick.translation", "res://results/benchmark.sample.translation", "res://results/benchmark.observed.translation", "res://results/benchmark.tick.translation", "res://results/benchmark.tick.translation", "res://results/benchmark.tick.translation", "res://results/benchmark.rollback.translation", "res://results/benchmark.rollback.translation", "res://results/benchmark.cpu.translation", "res://results/benchmark.rss.translation", "res://results/benchmark.players.translation", "res://results/benchmark.active.translation", "res://results/benchmark.dormant.translation", "res://results/benchmark.relevant.translation", "res://results/benchmark.tx.translation", "res://results/benchmark.rx.translation", "res://results/benchmark.dormant.translation", "res://results/benchmark.dormant.translation", "res://results/benchmark.dormant.translation", "res://results/benchmark.dormancy.translation", "res://results/benchmark.tick.translation"]
+
+source_file="res://results/benchmark.csv"
+dest_files=["res://results/benchmark.scenario.translation", "res://results/benchmark.tick.translation", "res://results/benchmark.sample.translation", "res://results/benchmark.observed.translation", "res://results/benchmark.tick.translation", "res://results/benchmark.tick.translation", "res://results/benchmark.tick.translation", "res://results/benchmark.rollback.translation", "res://results/benchmark.rollback.translation", "res://results/benchmark.cpu.translation", "res://results/benchmark.rss.translation", "res://results/benchmark.players.translation", "res://results/benchmark.active.translation", "res://results/benchmark.dormant.translation", "res://results/benchmark.relevant.translation", "res://results/benchmark.tx.translation", "res://results/benchmark.rx.translation", "res://results/benchmark.dormant.translation", "res://results/benchmark.dormant.translation", "res://results/benchmark.dormant.translation", "res://results/benchmark.dormancy.translation", "res://results/benchmark.tick.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

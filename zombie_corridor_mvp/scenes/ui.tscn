@@ -1,0 +1,184 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6raprd7c7u1x"]
+
+[ext_resource type="Script" path="res://game/ui.gd" id="1_ui"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_menu_panel"]
+bg_color = Color(0.08, 0.12, 0.17, 1)
+content_margin_left = 28.0
+content_margin_top = 24.0
+content_margin_right = 28.0
+content_margin_bottom = 24.0
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="CorridorUI" type="CanvasLayer"]
+script = ExtResource("1_ui")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.045, 0.07, 0.095, 0.97)
+
+[node name="MenuPanel" type="PanelContainer" parent="Root"]
+custom_minimum_size = Vector2(460, 430)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -215.0
+offset_right = 230.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_menu_panel")
+
+[node name="MenuMargin" type="MarginContainer" parent="Root/MenuPanel"]
+layout_mode = 2
+
+[node name="MenuStack" type="VBoxContainer" parent="Root/MenuPanel/MenuMargin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="Root/MenuPanel/MenuMargin/MenuStack"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.25, 0.94, 0.77, 1)
+theme_override_font_sizes/font_size = 32
+text = "CORRIDOR 99"
+
+[node name="SubtitleLabel" type="Label" parent="Root/MenuPanel/MenuMargin/MenuStack"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.94, 1)
+theme_override_font_sizes/font_size = 15
+text = "Cooperative capsule survival • 1–4 players"
+
+[node name="StatusLabel" type="Label" parent="Root/MenuPanel/MenuMargin/MenuStack"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.94, 1)
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+text = "Main menu"
+
+[node name="LocalButton" type="Button" parent="Root/MenuPanel/MenuMargin/MenuStack"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "Probar local"
+
+[node name="EndpointRow" type="HBoxContainer" parent="Root/MenuPanel/MenuMargin/MenuStack"]
+layout_mode = 2
+
+[node name="IP" type="LineEdit" parent="Root/MenuPanel/MenuMargin/MenuStack/EndpointRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1"
+placeholder_text = "Server IP or DNS"
+
+[node name="Port" type="SpinBox" parent="Root/MenuPanel/MenuMargin/MenuStack/EndpointRow"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+min_value = 1024.0
+max_value = 65535.0
+value = 27015.0
+
+[node name="ConnectButton" type="Button" parent="Root/MenuPanel/MenuMargin/MenuStack"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "Conectar"
+
+[node name="ResumeButton" type="Button" parent="Root/MenuPanel/MenuMargin/MenuStack"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "Resume / capture mouse"
+
+[node name="DisconnectButton" type="Button" parent="Root/MenuPanel/MenuMargin/MenuStack"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "Disconnect"
+
+[node name="QuitButton" type="Button" parent="Root/MenuPanel/MenuMargin/MenuStack"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "Quit"
+
+[node name="ControlsLabel" type="Label" parent="Root/MenuPanel/MenuMargin/MenuStack"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.94, 1)
+theme_override_font_sizes/font_size = 14
+text = "WASD • Mouse • Hold left click • Esc • F3"
+
+[node name="HUD" type="Label" parent="Root"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 24.0
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.94, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="Debug" type="Label" parent="Root"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 75.0
+offset_right = 24.0
+offset_bottom = 75.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.94, 1)
+theme_override_font_sizes/font_size = 15
+
+[node name="Feedback" type="Label" parent="Root"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 36.0
+offset_right = 100.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.5, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 24
+
+[node name="Crosshair" type="Label" parent="Root"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -18.0
+offset_right = 8.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.85, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "+"

@@ -1,0 +1,252 @@
+[
+  {
+    "name": "combat_authority",
+    "status": "PASS",
+    "build": true,
+    "players": 2,
+    "duration_s": 32,
+    "rtt_median_ms": 16.956,
+    "bot_kills": [
+      20,
+      0
+    ],
+    "bot_deaths": [
+      2,
+      1
+    ],
+    "bot_respawns": [
+      2,
+      1
+    ],
+    "snapshots": [
+      2329,
+      2288
+    ],
+    "server_combat_hits": 80,
+    "server_kills": 20,
+    "cached_retries": 77,
+    "combat_rejected": {
+      "cadence": 155,
+      "finite": 105,
+      "id_window": 105,
+      "life_session": 210,
+      "queued_duplicate": 105,
+      "time": 105
+    },
+    "counts": [
+      0,
+      0
+    ],
+    "logs": "logs/combat_authority-server.jsonl"
+  },
+  {
+    "name": "dormant20",
+    "status": "PASS",
+    "build": true,
+    "players": 1,
+    "duration_s": 8,
+    "rtt_median_ms": 17.108,
+    "bot_kills": [
+      0
+    ],
+    "bot_deaths": [
+      0
+    ],
+    "bot_respawns": [
+      0
+    ],
+    "snapshots": [
+      0
+    ],
+    "server_combat_hits": 0,
+    "server_kills": 0,
+    "cached_retries": 0,
+    "combat_rejected": {},
+    "counts": [
+      0,
+      20
+    ],
+    "logs": "logs/dormant20-server.jsonl"
+  },
+  {
+    "name": "dormant100",
+    "status": "PASS",
+    "build": true,
+    "players": 1,
+    "duration_s": 8,
+    "rtt_median_ms": 17.862,
+    "bot_kills": [
+      0
+    ],
+    "bot_deaths": [
+      0
+    ],
+    "bot_respawns": [
+      0
+    ],
+    "snapshots": [
+      0
+    ],
+    "server_combat_hits": 0,
+    "server_kills": 0,
+    "cached_retries": 0,
+    "combat_rejected": {},
+    "counts": [
+      0,
+      100
+    ],
+    "logs": "logs/dormant100-server.jsonl"
+  },
+  {
+    "name": "split_aoi",
+    "status": "PASS",
+    "build": true,
+    "players": 2,
+    "duration_s": 10,
+    "rtt_median_ms": 18.24,
+    "bot_kills": [
+      0,
+      0
+    ],
+    "bot_deaths": [
+      0,
+      0
+    ],
+    "bot_respawns": [
+      0,
+      0
+    ],
+    "snapshots": [
+      980,
+      790
+    ],
+    "server_combat_hits": 0,
+    "server_kills": 0,
+    "cached_retries": 0,
+    "combat_rejected": {},
+    "counts": [
+      20,
+      0
+    ],
+    "logs": "logs/split_aoi-server.jsonl"
+  },
+  {
+    "name": "late_join_reconnect_cleanup",
+    "status": "PASS",
+    "new_connection_peer": 1762201886
+  },
+  {
+    "name": "adverse100",
+    "status": "PASS",
+    "build": true,
+    "players": 2,
+    "duration_s": 32,
+    "rtt_median_ms": 119.2645,
+    "bot_kills": [
+      17,
+      0
+    ],
+    "bot_deaths": [
+      5,
+      4
+    ],
+    "bot_respawns": [
+      4,
+      4
+    ],
+    "snapshots": [
+      4823,
+      4820
+    ],
+    "server_combat_hits": 73,
+    "server_kills": 17,
+    "cached_retries": 0,
+    "combat_rejected": {
+      "cadence": 22,
+      "dead_life": 4
+    },
+    "counts": [
+      23,
+      0
+    ],
+    "logs": "logs/adverse100-server.jsonl"
+  },
+  {
+    "name": "adverse150",
+    "status": "PASS",
+    "build": true,
+    "players": 2,
+    "duration_s": 32,
+    "rtt_median_ms": 167.424,
+    "bot_kills": [
+      14,
+      0
+    ],
+    "bot_deaths": [
+      5,
+      4
+    ],
+    "bot_respawns": [
+      4,
+      4
+    ],
+    "snapshots": [
+      4821,
+      4598
+    ],
+    "server_combat_hits": 63,
+    "server_kills": 14,
+    "cached_retries": 0,
+    "combat_rejected": {
+      "cadence": 24,
+      "dead_life": 8,
+      "time": 2
+    },
+    "counts": [
+      26,
+      0
+    ],
+    "logs": "logs/adverse150-server.jsonl"
+  },
+  {
+    "name": "four_player",
+    "status": "PASS",
+    "build": true,
+    "players": 4,
+    "duration_s": 12,
+    "rtt_median_ms": 17.347,
+    "bot_kills": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "bot_deaths": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "bot_respawns": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "snapshots": [
+      5900,
+      5950,
+      5856,
+      5903
+    ],
+    "server_combat_hits": 0,
+    "server_kills": 0,
+    "cached_retries": 0,
+    "combat_rejected": {},
+    "counts": [
+      50,
+      0
+    ],
+    "logs": "logs/four_player-server.jsonl"
+  }
+]

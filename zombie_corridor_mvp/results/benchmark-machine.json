@@ -1,0 +1,11 @@
+{
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "cpu_count": 10,
+  "cpu_model": "Apple M5",
+  "scope": "local macOS dedicated-server process only; bots on same host; no VPS capacity inference",
+  "warmup_s": 10,
+  "observed_s": 60,
+  "cpu_method": "ps cumulative process TIME delta / monotonic elapsed *100;100%=one core",
+  "rss_method": "ps RSS KiB /1024 -> MiB"
+}

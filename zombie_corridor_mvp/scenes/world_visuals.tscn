@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv5hm7pd8ovtk"]
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 1
+background_color = Color(0.09, 0.13, 0.18, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.62, 0.75, 1, 1)
+ambient_light_energy = 0.7
+fog_enabled = true
+fog_light_color = Color(0.12, 0.2, 0.27, 1)
+fog_density = 0.013
+
+[sub_resource type="BoxMesh" id="BoxMesh_strip"]
+size = Vector3(9, 0.025, 0.07)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_strip_green"]
+albedo_color = Color(0.13, 0.8, 0.65, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_strip_orange"]
+albedo_color = Color(0.8, 0.48, 0.16, 1)
+
+[node name="WorldVisuals" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-65, -20, 0)
+light_energy = 1.2
+
+[node name="FloorStrips" type="Node3D" parent="."]
+
+[node name="StripZMinus10" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -10)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_green")
+
+[node name="StripZMinus20" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -20)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_green")
+
+[node name="StripZMinus30" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -30)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_green")
+
+[node name="StripZMinus40" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -40)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_green")
+
+[node name="StripZMinus50" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -50)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_green")
+
+[node name="StripZMinus60" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -60)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_green")
+
+[node name="StripZMinus70" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -70)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_orange")
+
+[node name="StripZMinus80" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -80)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_orange")
+
+[node name="StripZMinus90" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -90)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_orange")
+
+[node name="StripZMinus100" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -100)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_orange")
+
+[node name="StripZMinus110" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -110)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_orange")
+
+[node name="StripZMinus120" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -120)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_orange")
+
+[node name="StripZMinus130" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -130)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_orange")
+
+[node name="StripZMinus140" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -140)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_orange")
+
+[node name="StripZMinus150" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -150)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_orange")
+
+[node name="StripZMinus160" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -160)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_orange")
+
+[node name="StripZMinus170" type="MeshInstance3D" parent="FloorStrips"]
+position = Vector3(0, 0.01, -170)
+mesh = SubResource("BoxMesh_strip")
+material_override = SubResource("StandardMaterial3D_strip_orange")

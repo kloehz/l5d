@@ -1,0 +1,38 @@
+[
+  {
+    "run": 0,
+    "status": "PASS",
+    "error": null,
+    "logs": "logs/adaptive-diagnosis-interval100/0"
+  },
+  {
+    "run": 1,
+    "status": "PASS",
+    "error": null,
+    "logs": "logs/adaptive-diagnosis-interval100/1"
+  },
+  {
+    "run": 2,
+    "status": "PASS",
+    "error": null,
+    "logs": "logs/adaptive-diagnosis-interval100/2"
+  },
+  {
+    "run": 3,
+    "status": "PASS",
+    "error": null,
+    "logs": "logs/adaptive-diagnosis-interval100/3"
+  },
+  {
+    "run": 4,
+    "status": "PASS",
+    "error": null,
+    "logs": "logs/adaptive-diagnosis-interval100/4"
+  },
+  {
+    "run": 5,
+    "status": "PASS",
+    "error": null,
+    "logs": "logs/adaptive-diagnosis-interval100/5"
+  }
+]

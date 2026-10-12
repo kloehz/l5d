@@ -1,0 +1,161 @@
+{
+  "failed_runs": [],
+  "runs": [
+    {
+      "run": 0,
+      "exit_code": 0,
+      "bots": [
+        {
+          "distance": 9.66667747497559,
+          "accepted_pose": [
+            -1.5,
+            -16.6666774749756
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        },
+        {
+          "distance": 9.00001335144043,
+          "accepted_pose": [
+            -0.5,
+            -16.0000133514404
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        }
+      ]
+    },
+    {
+      "run": 1,
+      "exit_code": 0,
+      "bots": [
+        {
+          "distance": 9.66667747497559,
+          "accepted_pose": [
+            -1.5,
+            -16.6666774749756
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        },
+        {
+          "distance": 9.66667747497559,
+          "accepted_pose": [
+            -0.5,
+            -16.6666774749756
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "exit_code": 0,
+      "bots": [
+        {
+          "distance": 9.66667747497559,
+          "accepted_pose": [
+            -1.5,
+            -16.6666774749756
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        },
+        {
+          "distance": 9.66667747497559,
+          "accepted_pose": [
+            -0.5,
+            -16.6666774749756
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "exit_code": 0,
+      "bots": [
+        {
+          "distance": 9.66667747497559,
+          "accepted_pose": [
+            -1.5,
+            -16.6666774749756
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        },
+        {
+          "distance": 9.83334350585938,
+          "accepted_pose": [
+            -0.5,
+            -16.8333435058594
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        }
+      ]
+    },
+    {
+      "run": 4,
+      "exit_code": 0,
+      "bots": [
+        {
+          "distance": 9.5000114440918,
+          "accepted_pose": [
+            -1.5,
+            -16.5000114440918
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        },
+        {
+          "distance": 9.66667747497559,
+          "accepted_pose": [
+            -0.5,
+            -16.6666774749756
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        }
+      ]
+    },
+    {
+      "run": 5,
+      "exit_code": 0,
+      "bots": [
+        {
+          "distance": 9.66667747497559,
+          "accepted_pose": [
+            -1.5,
+            -16.6666774749756
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        },
+        {
+          "distance": 10.0000095367432,
+          "accepted_pose": [
+            -0.5,
+            -17.0000095367432
+          ],
+          "throttle_limits": [
+            32.0
+          ]
+        }
+      ]
+    }
+  ]
+}

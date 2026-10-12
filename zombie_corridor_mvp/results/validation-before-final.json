@@ -1,0 +1,224 @@
+[
+  {
+    "name": "combat_authority",
+    "status": "PASS",
+    "build": true,
+    "players": 2,
+    "duration_s": 32,
+    "rtt_median_ms": 17.936999999999998,
+    "bot_kills": [
+      19,
+      0
+    ],
+    "bot_deaths": [
+      5,
+      4
+    ],
+    "bot_respawns": [
+      5,
+      4
+    ],
+    "snapshots": [
+      2290,
+      2250
+    ],
+    "server_combat_hits": 78,
+    "server_kills": 19,
+    "counts": [
+      1,
+      0
+    ],
+    "logs": "logs/combat_authority-server.jsonl"
+  },
+  {
+    "name": "dormant20",
+    "status": "PASS",
+    "build": true,
+    "players": 1,
+    "duration_s": 8,
+    "rtt_median_ms": 15.181,
+    "bot_kills": [
+      0
+    ],
+    "bot_deaths": [
+      0
+    ],
+    "bot_respawns": [
+      0
+    ],
+    "snapshots": [
+      0
+    ],
+    "server_combat_hits": 0,
+    "server_kills": 0,
+    "counts": [
+      0,
+      20
+    ],
+    "logs": "logs/dormant20-server.jsonl"
+  },
+  {
+    "name": "dormant100",
+    "status": "PASS",
+    "build": true,
+    "players": 1,
+    "duration_s": 8,
+    "rtt_median_ms": 16.332,
+    "bot_kills": [
+      0
+    ],
+    "bot_deaths": [
+      0
+    ],
+    "bot_respawns": [
+      0
+    ],
+    "snapshots": [
+      0
+    ],
+    "server_combat_hits": 0,
+    "server_kills": 0,
+    "counts": [
+      0,
+      100
+    ],
+    "logs": "logs/dormant100-server.jsonl"
+  },
+  {
+    "name": "split_aoi",
+    "status": "PASS",
+    "build": true,
+    "players": 2,
+    "duration_s": 10,
+    "rtt_median_ms": 16.236,
+    "bot_kills": [
+      0,
+      0
+    ],
+    "bot_deaths": [
+      0,
+      0
+    ],
+    "bot_respawns": [
+      0,
+      0
+    ],
+    "snapshots": [
+      980,
+      980
+    ],
+    "server_combat_hits": 0,
+    "server_kills": 0,
+    "counts": [
+      20,
+      0
+    ],
+    "logs": "logs/split_aoi-server.jsonl"
+  },
+  {
+    "name": "late_join_reconnect_cleanup",
+    "status": "PASS",
+    "new_connection_peer": 753241942
+  },
+  {
+    "name": "adverse100",
+    "status": "PASS",
+    "build": true,
+    "players": 2,
+    "duration_s": 32,
+    "rtt_median_ms": 118.825,
+    "bot_kills": [
+      14,
+      0
+    ],
+    "bot_deaths": [
+      6,
+      5
+    ],
+    "bot_respawns": [
+      5,
+      4
+    ],
+    "snapshots": [
+      4197,
+      4140
+    ],
+    "server_combat_hits": 63,
+    "server_kills": 14,
+    "counts": [
+      26,
+      0
+    ],
+    "logs": "logs/adverse100-server.jsonl"
+  },
+  {
+    "name": "adverse150",
+    "status": "PASS",
+    "build": true,
+    "players": 2,
+    "duration_s": 32,
+    "rtt_median_ms": 168.9235,
+    "bot_kills": [
+      11,
+      0
+    ],
+    "bot_deaths": [
+      6,
+      6
+    ],
+    "bot_respawns": [
+      5,
+      5
+    ],
+    "snapshots": [
+      3255,
+      3054
+    ],
+    "server_combat_hits": 54,
+    "server_kills": 11,
+    "counts": [
+      29,
+      0
+    ],
+    "logs": "logs/adverse150-server.jsonl"
+  },
+  {
+    "name": "four_player",
+    "status": "PASS",
+    "build": true,
+    "players": 4,
+    "duration_s": 12,
+    "rtt_median_ms": 17.058,
+    "bot_kills": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "bot_deaths": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "bot_respawns": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "snapshots": [
+      4330,
+      5950,
+      5914,
+      5914
+    ],
+    "server_combat_hits": 0,
+    "server_kills": 0,
+    "counts": [
+      50,
+      0
+    ],
+    "logs": "logs/four_player-server.jsonl"
+  }
+]

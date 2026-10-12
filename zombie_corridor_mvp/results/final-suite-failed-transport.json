@@ -1,0 +1,31 @@
+{
+  "runtime_source_sha256": "fa257db1dd95d9198429936c1f1b48a57d0f70e21d1ddd7b65540de26d265daa",
+  "build_manifest_sha256": "4747f7bd334f4bb4ca192b065f88d49c40f35e9e66db5c16f8f5e2fe17f02fc4",
+  "status": "FAIL",
+  "error": "AssertionError(('transport-final-result', 'failed; dependent stages not launched'))",
+  "stages": [
+    {
+      "stage": "invariants-final",
+      "command": [
+        "/Users/guidocotelesso/Documents/godot/projects/game-99-coop/zombie_corridor_mvp/.tools/godot-4.7/Godot.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/guidocotelesso/Documents/godot/projects/game-99-coop/zombie_corridor_mvp",
+        "res://tests/invariants.tscn"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.554899042,
+      "log": "logs/invariants-final.log"
+    },
+    {
+      "stage": "transport-final-result",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/transport_smoke.py"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 8.932746708,
+      "log": "logs/transport-final-result.log"
+    }
+  ]
+}
