@@ -1,0 +1,7 @@
+# Remote visual interpolation boundaries
+
+The example `zombie_corridor_mvp/game/remote_player_visual.gd` uses a 30 Hz public tick, 24 retained samples, and a 350 ms display delay. A final direct/150 ms RTT run measured a 307.485 ms maximum directly observed age. These are one project's evidence, not defaults for another game or network.
+
+Measure actual arrival ages and coalescing, preserve raw finite clock observations, and choose a buffer that covers observed conditions. Do not infer delay solely from nominal RTT. Keep one continuous bounded cursor for feet/camera/aim/shot view time; interpolate position and short yaw brackets, hold endpoints, and do not extrapolate without separate authorization. Reset cursor, samples, and clock state on life/session/reconnect/settings changes and discontinuities such as teleports. Bound long-frame advancement and validate finite time after reset.
+
+Keep visual presentation on a scene-first top-level visual node; it must not drive root/collider state or input. Test sustained movement, stationary/dead states, sparse and missing history, reset transitions, long frames, endpoint holds, and cursor finiteness. A missing bracket is evidence to investigate the receiver, not permission to synthesize a pose or hide a decoder bug.

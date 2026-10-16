@@ -1,0 +1,7 @@
+# Netfox startup, input, and state safety
+
+Illustrative evidence includes `zombie_corridor_mvp/game/input_publication_budget.gd` and `game/publisher.gd`. The pinned example uses input history 16; do not assume that size or private measurement access is portable. Verify exact Netfox version, native peer registration/state, session generation, and sample freshness.
+
+Require a connected—not merely referenced—native peer and reject disconnecting peers. Couple fresh RTT/jitter/clock evidence to peer and generation. Budgets are estimators, not proof against arbitrary WAN delay, loss, or drift. Readiness gates publication only; simulation, recording, prediction, and history trimming continue. Before encoding, require the exact non-null state owned for the requested tick. Never fabricate old state, mutate private clocks, or infer publication from metrics.
+
+Age ACK references per peer while preserving history needed for the full scheduler's actual cadence. In the pinned example, interval 7 can schedule after 8 ticks; measure actual scheduling instead of assuming interval equals send cadence. Test wrong native peer state, old generation, sparse input, whole old packets, subsequent fresh packet, byte capture, clock provenance, ACK aging, and trim boundaries.

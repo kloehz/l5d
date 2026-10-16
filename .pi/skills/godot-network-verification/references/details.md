@@ -1,0 +1,7 @@
+# Godot multiplayer runtime evidence
+
+Build evidence from actual two-client graphical runs: render/post-draw timing, controlled direct and delay runs, authority, own-input responsiveness, no-broadcast behavior, continuous movement by time and displacement, stationary/dead cases. Screenshot capture must not block the measured interval. Separate a global frame pause from a network-only hold. Report direct/local, WAN, human acceptance, and capacity as distinct axes.
+
+Runner safety: use unique process groups, absolute working directory, explicit timeouts, and Python-based timeout handling compatible with macOS. Preserve failure markers, receipts, partial output, and preimages. Do not rerun one-shot tests casually. Raw errors/warnings/leaks are failures even with exit code zero unless a specific causal negative exception is documented. Fixtures must account for Node autoloads and detached-node filters with balanced lifecycle.
+
+Distinguish scene-source behavior from frozen executable/PCK behavior; compare source hashes and delivery identity rather than assuming all binaries are the same. Server-state journals may target only an explicitly authorized service. Never let a skill grant runtime permission or automate VPS operations. Keep role-index IDs scoped to one run; only initial empty binding before the first valid value is acceptable. Do not manufacture results or claim that local evidence proves WAN or human acceptance.
