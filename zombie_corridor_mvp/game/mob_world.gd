@@ -1,5 +1,7 @@
 class_name MathematicalMobs
 extends RefCounted
+
+const MOB_TIMING := preload("res://game/mob_timing.gd")
 enum State {DORMANT, ACTIVE, ATTACKING, DEAD}
 var records = {}
 var active = {}
@@ -117,7 +119,7 @@ func move(players: Dictionary, now: float, tick: int, damage: Callable) -> void:
 		row.revision += 1
 		row.tick = tick
 		row.history.append([now,row.position])
-		while row.history.size()>1 and row.history[1][0] < now-.5: row.history.pop_front()
+		while row.history.size()>1 and row.history[1][0] < now-MOB_TIMING.MOB_HISTORY_SECONDS: row.history.pop_front()
 		var cell = chunk(row.position)
 		if cell != row.chunk:
 			chunks[row.chunk].erase(id)

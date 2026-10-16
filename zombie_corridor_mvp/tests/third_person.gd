@@ -5,6 +5,12 @@ const DEFAULT_CAMERA_DISTANCE := 3.241
 const UI_SCENE := preload("res://scenes/ui.tscn")
 const PLAYER_ACTOR_SCENE := "res://scenes/player_actor.tscn"
 
+class RenderedPoseSource:
+	extends Node
+	var poses: Dictionary = {}
+	func get_rendered_mob_foot(id: Variant) -> Variant:
+		return poses.get(id, null)
+
 var failures: Array[String] = []
 var assertions := 0
 var world: Node3D
@@ -152,6 +158,7 @@ func _check_player_camera_and_aim() -> void:
 	net_session.actors.erase("%s_%s" % [net_session.local_peer(), net_session.own_life])
 	check(net_session.local_shot_direction().is_equal_approx(Vector3(0,0,-1).rotated(Vector3.RIGHT,net_session.control_look.y).rotated(Vector3.UP,-net_session.control_look.x).normalized()), "NetSession preserves bot/no-camera fallback direction")
 	_check_near_camera_center_mob_convergence()
+	_check_rendered_mob_pose_aim()
 	_check_nearest_mob_and_wall_precedence()
 	_check_invalid_mob_records_preserve_wall_target()
 
@@ -191,6 +198,33 @@ func _check_near_camera_center_mob_convergence() -> void:
 	var actual_direction := local_actor.camera_aim_direction(net_session.weapon_range)
 	var head_hit := CorridorGeometry.ray_capsule(local_actor.shot_origin(), actual_direction, mob_foot, net_session.weapon_range)
 	check(is_finite(head_hit), "head-origin aim converges onto a nearby mob intersected by the camera-center ray")
+	net_session.store.records = saved_records
+
+func _check_rendered_mob_pose_aim() -> void:
+	var saved_records: Dictionary = net_session.store.records.duplicate(true)
+	net_session.store.records.clear()
+	var camera_origin: Vector3 = local_actor.camera.global_position
+	var camera_direction: Vector3 = -local_actor.camera.global_transform.basis.z.normalized()
+	var raw_foot := _mob_foot_on_camera_ray(local_actor, 4.5)
+	var rendered_foot := _mob_foot_on_camera_ray(local_actor, 6.5)
+	var rendered_source := RenderedPoseSource.new()
+	rendered_source.add_to_group("mob_presentation")
+	rendered_source.poses[202] = rendered_foot
+	root.add_child(rendered_source)
+	net_session.store.records[202] = _mob_row(202, raw_foot)
+	var rendered_direction := local_actor.camera_aim_direction(net_session.weapon_range)
+	var rendered_distance: float = CorridorGeometry.ray_capsule(camera_origin, camera_direction, rendered_foot, net_session.weapon_range)
+	var rendered_target: Vector3 = camera_origin + camera_direction * rendered_distance
+	var expected_rendered_direction: Vector3 = (rendered_target - local_actor.shot_origin()).normalized()
+	check(rendered_direction.is_equal_approx(expected_rendered_direction), "camera aim follows the mob's actual displayed foot rather than its newer raw store pose")
+	rendered_source.remove_from_group("mob_presentation")
+	root.remove_child(rendered_source)
+	rendered_source.free()
+	var raw_direction := local_actor.camera_aim_direction(net_session.weapon_range)
+	var raw_distance: float = CorridorGeometry.ray_capsule(camera_origin, camera_direction, raw_foot, net_session.weapon_range)
+	var raw_target: Vector3 = camera_origin + camera_direction * raw_distance
+	var expected_raw_direction: Vector3 = (raw_target - local_actor.shot_origin()).normalized()
+	check(raw_direction.is_equal_approx(expected_raw_direction), "removing the rendered-pose fixture restores raw-position fallback aiming")
 	net_session.store.records = saved_records
 
 func _check_nearest_mob_and_wall_precedence() -> void:

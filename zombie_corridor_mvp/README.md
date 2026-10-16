@@ -72,11 +72,6 @@ See **[`docs/VALIDATION.md`](docs/VALIDATION.md)**, **`results/validation.json`*
 
 ## Remote deployment
 
-There is **no project-authorized SSH destination**. No unrelated host was contacted. Both architectures and a safe explicit-target deploy tool are provided:
+Release `4665229` is deployed on the isolated cooperative-game service. A four-client WAN profile passed independent semantic analysis, and a separate first normal-service two-client smoke passed. These are bounded observations, not proof of arbitrary-source access, general VPS capacity, physical-input play, or universal WAN behavior. UDP `27015` remains restricted to its authorized source; no general public ingress was opened.
 
-```bash
-python3 scripts/deploy_vps.py --host YOUR_AUTHORIZED_HOST --user GAME_USER \
-  --directory /opt/corridor99-new --service corridor99-new --arch arm64 --port 27015
-```
-
-The directory must be new and writable by that user. Select the server architecture from the remote `uname -m` result, not a guess. The tool checks it before upload and refuses existing paths/services. `--install-service` explicitly opts into installing this **new** systemd unit with sudo. It never changes firewall/provider rules, users, unrelated services, SSH configuration, auth or VPN configuration. Public UDP handshake/gameplay must still be tested after deployment; localhost is not public-online verification.
+The service already exists. `scripts/deploy_vps.py` is an initial installer that refuses existing targets, not an updater. Do not rerun deployment or preserved one-shot profile helpers. For current status, exact release identity, evidence, and the parent-only rollback boundary, see [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) and [`docs/releases/4665229.md`](docs/releases/4665229.md).

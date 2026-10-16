@@ -1,5 +1,7 @@
 class_name CorridorPlayer
 extends CharacterBody3D
+
+const RemotePlayerVisualScript = preload("res://game/remote_player_visual.gd")
 var owner_peer_id = 0
 var life_id = 1
 var spawn_tick = 0
@@ -14,6 +16,8 @@ var camera: Camera3D
 var camera_rest_position := Vector3.ZERO
 var correction_m = 0.0
 var last_simulated_input_tick = -1
+var _remote_visual_playback: Variant
+var _remote_visual_context: Array[int] = []
 
 const AIM_HEAD_OFFSET := Vector3(0, 1.55, 0)
 const CAMERA_COLLISION_MARGIN := 0.18
@@ -35,6 +39,10 @@ func configure(peer: int, life: int, pose: Vector3, born: int) -> void:
 	last_motion_tick = -1
 	last_simulated_input_tick = -1
 	correction_m = 0.0
+	if _remote_visual_playback:
+		_remote_visual_playback.reset()
+	_remote_visual_playback = null
+	_remote_visual_context.clear()
 	set_multiplayer_authority(1)
 	_bind_authored_children()
 	_configure_input(peer)
@@ -70,7 +78,8 @@ func _configure_movement_sync(peer: int) -> void:
 	rb.input_properties.assign(["Input:movement", "Input:look"])
 	rb.enable_input_broadcast = false
 	rb.enable_prediction = _net().is_server or peer == _net().local_peer()
-	rb.full_state_interval = 15
+	# Netfox's strict scheduler sends every 8 ticks, leaving delivery margin in history 16.
+	rb.full_state_interval = 7
 
 func _configure_visual_role(peer: int) -> void:
 	if _is_non_visual_role():
@@ -150,9 +159,26 @@ func _process(delta: float) -> void:
 			camera.rotation.x = _net().control_look.y
 			_update_camera_obstruction()
 	else:
-		# Presentation only. Never mutate the replicated collision/state pose.
-		visual.global_position = visual.global_position.lerp(global_position,1.0-exp(-delta*12.0))
-		visual.rotation.y = lerp_angle(visual.rotation.y,-facing.x,1.0-exp(-delta*12.0))
+		# Playback consumes only complete states acknowledged by the pinned adapter.
+		# An empty receipt history intentionally leaves the authored spawn pose visible.
+		var session := _net()
+		var adapter_generation := int(rb.get_received_generation()) if rb and rb.has_method("get_received_generation") else -1
+		var context: Array[int] = [owner_peer_id, life_id, int(session.epoch), int(session.connection_generation), adapter_generation]
+		if _remote_visual_context != context:
+			if _remote_visual_playback:
+				_remote_visual_playback.reset()
+			_remote_visual_playback = RemotePlayerVisualScript.new()
+			_remote_visual_context = context
+		var received: Dictionary = rb.get_latest_received_state_sample() if rb and rb.has_method("get_latest_received_state_sample") else {}
+		if not received.is_empty():
+			_remote_visual_playback.ingest(received, life_id)
+		var network_time := _network_time()
+		var public_tick := float(network_time.tick) + float(network_time.tick_factor)
+		_remote_visual_playback.advance(delta, public_tick)
+		var displayed: Dictionary = _remote_visual_playback.sample_at(_remote_visual_playback.get_display_tick())
+		if not displayed.is_empty():
+			visual.global_position = displayed.position
+			visual.rotation.y = displayed.yaw
 		if camera:
 			camera.current = false
 	visual.visible = _network_time().tick < retire_tick
@@ -179,8 +205,10 @@ func _nearest_camera_mob_distance(camera_origin: Vector3, camera_direction: Vect
 		if not row is Dictionary: continue
 		if int(row.get("hp", 0)) <= 0: continue
 		if int(row.get("state", 0)) == 3: continue
-		var foot = row.get("position", null)
-		if not foot is Vector3 or not _finite_vector(foot): continue
+		var fallback_foot = row.get("position", null)
+		if not fallback_foot is Vector3 or not _finite_vector(fallback_foot): continue
+		var foot: Vector3 = _net().displayed_mob_foot(row.get("id", null), fallback_foot)
+		if not _finite_vector(foot): continue
 		var distance := CorridorGeometry.ray_capsule(camera_origin, camera_direction, foot, nearest)
 		if is_finite(distance) and distance > 0.001 and distance < nearest:
 			nearest = distance

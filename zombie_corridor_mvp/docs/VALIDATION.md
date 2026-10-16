@@ -1,105 +1,55 @@
-# Final validation evidence
+# Validation evidence
 
-## Current frozen candidate
+## Current release: 4665229 (local acceptance)
 
-The current local release candidate passed the full fail-fast suite. This is local source/export evidence only: it does not prove a VPS, a public Internet route, firewall rules, SSH access or native physical keyboard/mouse input.
+**Status: PASS for local acceptance; release `4665229` is also deployed on the isolated cooperative service.** Source commit `46652293592683158a1bfadecd810bc842498cb1`; runtime source fingerprint `c8b36346a210e9d69a72a5d91638fd304f4101c9d8b8f537978a1113e59f5b14` (78 files). The pinned export ran once. All 15 artifacts (427,196,460 bytes) matched manifest SHA256 `f50fa31dc80aabea17a1e8e1110d021a279f5732201ae4e626db591e3c14414e` and checksum-list SHA256 `2df9e5ba67cf3ffbeee2413fa5a1858f1bf7b83659260de757a3634eec9c5a72`. The deployment evidence is bounded: one WAN profile's independent analysis passed 11 semantic gates, and a separate first normal-service two-client smoke passed. This does not establish arbitrary-source WAN behavior, general VPS capacity, or manual physical-input play.
 
-| Identity | Value |
-| --- | --- |
-| Runtime source SHA256 | `dc00eece5d10abb957d02c242bf1452dcd0732cfc9e910a2dd3689f2f9feb006` |
-| Runtime source manifest | `results/runtime-source-manifest.json` (`77` files) |
-| Build manifest SHA256 | `2e226b5047ec6f864b55082aca6bad38631391547b54fd35b24eb060c3460e47` |
-| Build artifacts | `builds/manifest.json` (`15` artifacts) and `builds/SHA256SUMS` (`15` matching entries) |
-| Engine / addon | Godot `4.7.stable.official.5b4e0cb0f`; Netfox `1.35.3` |
-| Host | Apple M5, macOS `26.5.1`, ARM64, 10 logical CPUs |
-| Full-suite result | `results/final-suite.json`: `PASS`, 8 stages, 886.23 seconds |
+A fresh separate full suite ran once: exit 0, no timeout, 907.94 seconds. The eight observed stages were invariants (0.55s), transport (8.96s), validation (157.74s), lifecycle (84.75s), Linux transport (62.44s), render (11.25s), GUI (13.47s), and benchmarks (568.66s). Canonical records are `logs/release-4665229-export-1/full-suite-receipt.json`, `full-suite-verified.json`, and `full-suite.log`; machine results are in `results/final-suite.json`, `validation.json`, `lifecycle.json`, `linux-transport.json`, `benchmark-summary.json`, and the current 78-file source record in `logs/release-4665229-export-1/verified.json`. `results/runtime-source-manifest.json` remains historical (`10b811…`); it does not identify this release.
 
-The source manifest and build manifest are the stable references for exact file identities. Prefer those machine-readable reports over copied counts when auditing current bytes.
+The eight-stage suite establishes local acceptance of the frozen artifacts only; deployment and WAN observations are separate, bounded evidence summarized below. Neither evidence set establishes general VPS capacity, arbitrary-source public-WAN behavior, native physical keyboard/mouse interaction, or two-person manual play. No signed or published release is claimed.
 
-## Commands and verified outcomes
+### Runtime and lifecycle evidence
 
-| Command/test | Verified result | Evidence |
-| --- | --- | --- |
-| pinned Godot `--headless --path . res://tests/invariants.tscn` | exit 0; invariant assertions passed; expected malicious-position warning only | `logs/invariants-final.log` |
-| `python3 scripts/transport_smoke.py` | exit 0; real dedicated server plus two clients; predicted and accepted movement gates passed | `logs/transport-final-result.log` |
-| `python3 scripts/run_validation.py --case all --build` | exit 0; all eight release validation groups passed | `results/validation.json`, `logs/validation-final-release.log` |
-| `python3 scripts/run_lifecycle_checks.py` | exit 0; bind/handshake rejection, reconnect, exported Probar local and normal waves passed | `results/lifecycle.json`, `logs/lifecycle-final.log` |
-| `python3 scripts/run_linux_transport.py` | exit 0; both actual Linux dedicated exports passed with macOS clients through local Docker | `results/linux-transport.json`, `logs/linux-transport-final.log` |
-| `python3 scripts/capture_release_frames.py` | exit 0; exported gameplay/menu Viewport PNGs captured | `results/gameplay.png`, `results/menu.png`, `logs/render-final.log` |
-| `python3 scripts/run_local_demo.py --duration 12` | exit 0; one dedicated server and two GUI clients became ready; owned session cleaned up | `logs/gui-final.log` |
-| `python3 scripts/run_benchmark.py` | exit 0; all eight serial benchmark scenarios passed | `results/benchmark-summary.json`, `logs/benchmark-final-run.log` |
+- All 15 frozen export artifacts matched the recorded hashes and byte counts. The macOS executable alone does not identify the PCK; use the paired PCK identity in the release receipt.
+- Linux arm64 and amd64 ELF artifacts ran in local Docker and matched their frozen identities. Two macOS clients exited naturally after combat/respawn checks. Linux servers were copied while alive; the existing harness then force-removed its own UUID containers. **Do not claim natural server-container exit 0.** A read-only Docker check found no residual `zombie-transport` containers.
+- Some live server JSONL captures end with a partial tick. Accepted counts use complete prefixes; do not claim all raw JSONL is parseable or that invalid live data was clamped.
+- Current full-suite independent raw-log audit covered all eight adverse logs, including BOT logs and JSONL. It found zero ordinary errors, warnings, expired inputs, missing references, or leaks. Expected negative evidence remains: the malicious-position invariant warning and bind-conflict error. Cadence/dead-life rejections are business rejections, not stale-input warnings. The suite helper's escaped error-word-boundary regex was flawed; the independent raw-log audit bridged this candidate. No helper change, replay, or blanket waiver was made; the existing eight-stage gate passed.
 
-No engine/unit/full-suite rerun is implied by this document refresh. The table records already-observed reports.
+### Benchmarks and manual boundaries
 
-## Real-transport authority, spatial and lifecycle proof
+Each of eight scenarios had 60 measured server samples and 60 unique nearest-matched OS samples, after 10 seconds warmup; measured ticks were 1,800 except dormant20 at 1,802. Raw OS sample rows vary (69–70 for some cases). CPU/RSS samples were finite and nonnegative. Four-player/50-active on the local M5 measured p95/p99 tick 5.305/5.816ms, mean CPU 12.415% of one core and peak RSS 101.8125MiB. These local measurements are not VPS capacity estimates. Physical keyboard/mouse and two-person testing remain manual and outside automated proof.
 
-- `combat_authority` passed with 20 server kills, 80 server combat hits, 77 cached retries, deaths `[2, 1]` and respawns `[2, 1]` in `results/validation.json`.
-- `dormant20` and `dormant100` passed with zero dormant movement, AI and navigation counters in the benchmark summaries and validation reports.
-- `split_aoi` passed with 20 active and zero dormant records, two separated clients and retained per-peer snapshot evidence.
-- `four_player` passed with four independent ENet clients and 50 active mobs.
-- `results/lifecycle.json` passed all four groups: protocol rejection, same-GUI reconnect with two distinct peer IDs, exported Probar local child cleanup and normal play reaching wave 4 with 42 kills.
+## Reproduce the automated checks
 
-Current per-scenario details live in `results/validation.json`. Historical numeric values from earlier suites are retained only in the preserved failure directories and are not current evidence.
+From `zombie_corridor_mvp/`, first preserve existing `builds/`, `logs/` and `results/` with hash-verified copies. The scripts overwrite generated outputs; the recorded one-shot receipt helpers must not be replayed. Keep the pinned Godot4.7 binary/templates and Netfox1.35.3, and require a working existing Docker daemon for both Linux architectures.
 
-## Linux release transport
+```bash
+# A new candidate only: regenerate all three matching exports.
+bash scripts/export_builds.sh
+# Check every builds/manifest.json entry and builds/SHA256SUMS first.
+python3 scripts/run_final_suite.py
+# Focused source regressions are additional to the eight-stage suite.
+.tools/godot-4.7/Godot.app/Contents/MacOS/Godot --headless --path . res://tests/startup_input_budget.tscn
+.tools/godot-4.7/Godot.app/Contents/MacOS/Godot --headless --path . res://tests/state_snapshot_admission.tscn
+python3 -B -m unittest discover -s tests -p test_validation_diagnostics.py -v
+python3 -B -m unittest discover -s tests -p test_run_benchmark_sampler.py -v
+```
 
-| Actual Linux dedicated release | Observed combat | Environment |
-| --- | --- | --- |
-| arm64 | 65 hits, 15 kills, deaths `[4, 4]`, respawns `[3, 3]` | local Docker `linux/arm64`, image `postgres:16`, UDP mapped only to `127.0.0.1` |
-| x86_64 | 83 hits, 20 kills, deaths `[3, 3]`, respawns `[3, 3]` | local Docker `linux/amd64`, image `debian:bookworm-slim`, UDP mapped only to `127.0.0.1` |
+Exit0 or JSON PASS alone is insufficient: inspect the fresh case-local raw logs for ordinary errors, expired inputs and missing references, separating only the explicitly labeled negative fixtures. Recompute the runtime fingerprint and verify frozen artifact hashes before and after acceptance. Do not change clocks, history windows, SDKs or gates to make a failing run pass.
 
-This proves the exported Linux server binaries run locally under Docker. It does not prove a public VPS, host firewall, provider networking, VPN, authentication or deployment target.
+## Historical source and release evidence
 
-## Controlled UDP adversity
+These earlier records remain useful component evidence but are not interchangeable with the current frozen release:
 
-| Configured RTT / loss / jitter | Measured median application RTT | Actual proxy loss | Confirmed gameplay |
-| --- | ---: | ---: | --- |
-| 100 ms / 2% / none | 119.2645 ms | 145/7361 dropped (1.970%) | 17 kills, 73 hits, deaths `[5, 4]`, respawns `[4, 4]`, snapshots `[4823, 4820]` |
-| 150 ms / 5% / ±20 ms per leg | 167.424 ms | 373/7506 dropped (4.969%) | 14 kills, 63 hits, deaths `[5, 4]`, respawns `[4, 4]`, snapshots `[4821, 4598]` |
+- **3f3f80a** (`VPS-FIX-1`): disconnect-cleanup fix and its source checks; its separate historical export/full-suite acceptance does not describe current source.
+- **44edbfc** (`VPS-FIX-3`): history-refresh source work. Its later `VPS-FIX-4` export/full-suite attempt had ordinary missing-reference diagnostics and is a preserved failure, not a current pass or waiver. Its original run log is `logs/vps-fix-4-final-suite-20261014-154321-069546.log` (the machine PASS was not strict raw-log acceptance).
+- **006f1e6** (`VPS-FIX-5`): acknowledged-state reference guard. Historical 150ms/5% source-adverse runs had old-input events of ages 17–21; packet acceptance and cause were unresolved. Those events were not waived or retroactively erased.
+- **4665229 / c8b363**: subsequent input/state admission work and the current local frozen-release pass documented above. The clean current suite does not establish a universal WAN/loss guarantee or deployment acceptance.
 
-Proxy counters are retained in `results/adverse100-proxy.json` and `results/adverse150-proxy.json`; validation outcomes are in `results/validation.json`.
+The earlier graphical `facing = null` failure remains unattributed. A state regression demonstrated a sparse-history-to-null-wire path and valid facing-state delivery after its guard, but the fresh GUI pass does not establish that earlier failure's cause. Preserve all failed probes, path incidents, fixture failures, and overrun receipts; observed RED/GREEN work did not activate Strict TDD.
 
-## Final eight benchmarks
+## Deployment evidence and closeout
 
-All eight scenarios used the frozen source/build identities listed above. Each run used 10 seconds warmup, then 60 seconds observed, 1,800 measured ticks and 60 OS samples. CPU `100%` means one core. RSS is MiB. Application TX/RX are encoded custom RPC argument payload bytes and exclude Netfox/default-channel plus Godot/ENet framing.
+Release-specific artifact hashes, byte counts, stage details, and limitations are recorded in [`docs/releases/4665229.md`](releases/4665229.md). Current service identity, profile boundaries, local ignored evidence paths, and parent-only rollback boundary are in [`docs/DEPLOYMENT.md`](DEPLOYMENT.md). ODD task status and preservation/recovery history are in [`../../odd/tasks/vps-deployment.md`](../../odd/tasks/vps-deployment.md).
 
-| Scenario | Tick p50 / p95 / p99 ms | Rollback p95 ms | CPU mean, %1core | RSS peak MiB | Active / dormant mean | App TX / RX B/s |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| A: 0 players / 0 mobs | 0.019 / 0.038 / 0.044 | 0.003 | 0.488 | 98.906 | 0.00 / 0.00 | 0.0 / 0.0 |
-| B: 1 player / 0 mobs | 0.617 / 0.916 / 1.130 | 0.838 | 3.432 | 100.375 | 0.00 / 0.00 | 1508.3 / 31.0 |
-| C: 1 player / 20 active | 0.757 / 1.325 / 1.655 | 0.892 | 3.753 | 99.594 | 20.00 / 0.00 | 7400.9 / 30.7 |
-| D: 1 player / 20 dormant | 0.667 / 1.196 / 1.422 | 1.132 | 3.512 | 100.422 | 0.00 / 20.00 | 1516.1 / 30.7 |
-| E: 1 player / 100 dormant | 0.659 / 0.828 / 0.991 | 0.770 | 3.502 | 100.859 | 0.00 / 100.00 | 1516.8 / 31.0 |
-| F: 4 players / 50 active | 6.925 / 10.521 / 11.687 | 8.044 | 6.952 | 85.016 | 50.00 / 0.00 | 66964.0 / 123.9 |
-| G: 2 players / split groups | 1.234 / 2.219 / 2.429 | 1.179 | 4.284 | 100.469 | 20.00 / 0.00 | 9606.0 / 62.0 |
-| H: 2 players / 20 combat initially | 2.053 / 4.042 / 5.037 | 2.562 | 4.654 | 100.688 | 12.07 / 1.00 | 13418.1 / 862.2 |
-
-All CPU/RSS values, including tails, are finite and nonnegative in the accepted summary. Local tick p95 stays below the 16.7 ms margin goal; that is not a capacity guarantee for a VPS.
-
-### Effective clocks and real breakdowns
-
-| Scenario | Network / physics / loop / poll Hz mean | Movement / mob move / AI / activation / interest / publication / encode / combat mean ms |
-| --- | ---: | ---: |
-| idle | 30.00 / 30.00 / 60.01 / 60.01 | 0.0000 / 0.0004 / 0.0003 / 0.0002 / 0.0000 / 0.0001 / 0.0000 / 0.0012 |
-| player | 30.03 / 30.03 / 60.06 / 60.06 | 0.0254 / 0.0002 / 0.0003 / 0.0005 / 0.0004 / 0.0005 / 0.0000 / 0.0010 |
-| active20 | 30.03 / 30.03 / 60.07 / 60.07 | 0.0251 / 0.0684 / 0.0027 / 0.0017 / 0.0013 / 0.1388 / 0.0067 / 0.0010 |
-| dormant20 | 30.03 / 30.03 / 60.06 / 60.06 | 0.0275 / 0.0002 / 0.0004 / 0.0005 / 0.0004 / 0.0005 / 0.0000 / 0.0011 |
-| dormant100 | 30.04 / 30.04 / 60.08 / 60.08 | 0.0319 / 0.0002 / 0.0004 / 0.0005 / 0.0004 / 0.0005 / 0.0000 / 0.0010 |
-| active50 | 30.10 / 30.10 / 60.20 / 60.20 | 0.0702 / 0.1393 / 0.0085 / 0.0050 / 0.0078 / 0.9888 / 0.0463 / 0.0010 |
-| split | 30.05 / 30.05 / 60.11 / 60.11 | 0.0417 / 0.0666 / 0.0034 / 0.0021 / 0.0016 / 0.2772 / 0.0066 / 0.0009 |
-| combat | 30.06 / 30.04 / 60.08 / 60.08 | 0.0473 / 0.0509 / 0.0021 / 0.0021 / 0.0497 / 0.2516 / 0.0086 / 0.3197 |
-
-Ticks measure actual network movement/rollback loop work amortized across new ticks plus the committed tick's gameplay. `movement_ms` is nested in rollback; encode serialization is nested in interest/publication/combat; do not add nested columns. Logging, polling and sample overhead are excluded from explicit tick wall boundaries but included in OS CPU.
-
-## Preserved failures and narrow fixes
-
-- The first benchmark attempt is historical only; retained logs and identities are not final evidence.
-- A frozen-suite transport failure and movement diagnosis are retained in `logs/failed-frozen-transport.log`, `results/final-suite-failed-transport.json` and `docs/MOVEMENT_DIAGNOSIS.md`.
-- The pre-metric-fix suite is historical and partial; final benchmarks above were rerun after the metric fix.
-- The adaptive-throttle failure is historical and retained in `logs/failed-adaptive-throttle` and `results/failed-adaptive-throttle`.
-- A later SCN-6 benchmark run failed because an OS CPU sample became negative after the server exit boundary. The accepted fix changed the sampler lifecycle only: it polls liveness after sleep and around `ps`, drops terminal unavailable/dead-counter rows, rejects live cumulative regressions and preserves true zero CPU. It did not clamp negative values or relax the finite/nonnegative summary guard. Eight deterministic sampler regression tests and the full suite rerun passed.
-- The exact raw `ps` token for the negative sample was not logged. The exit/zombie explanation is a consistent hypothesis from the timing evidence, not a raw fact.
-
-## External pending
-
-Native physical keyboard/mouse interaction has not been automated. Current proof includes game-owned Viewport input/camera checks, exported rendered frames and prior human gameplay acceptance, but not OS-level native input. Remote deployment/public UDP verification still needs an explicit authorized destination. No historical host was contacted, no SSH command was run and no firewall, VPN, auth or service configuration was changed.
+The current normal service is source `4665229`, PID `2425219`, ready epoch `570206795`, running the verified x86 ELF. UDP `27015` remains source-restricted. The normal unit has no metrics flag, so the normal smoke does not establish a directly observed normal roster-zero count; bounded cleanup comes from the separate canary profile. The canary's original CLI receipt remains FAIL even though independent analysis passed. No profile replay, general public ingress, arbitrary-source guarantee, or VPS-capacity claim is authorized. All 11 deployment tasks are complete; final documentation passed independent readback and is committed as `129c8bb6abd7ddb91a5abd6b8c1582874a04ba43`. Physical-input and real two-human checks remain manual.

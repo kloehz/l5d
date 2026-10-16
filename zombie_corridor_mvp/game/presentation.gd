@@ -6,6 +6,8 @@ const TRACER_LIFETIME_SECONDS := 0.075
 const PREDICTED_TRACER_COLOR := Color(.98, .8, .35)
 const CONFIRMED_TRACER_COLOR := Color(.4, 1, .7)
 const MOB_VISUAL_SCENE := preload("res://scenes/mob_visual.tscn")
+const MOB_VISUAL_SAMPLER := preload("res://game/mob_visual_sampler.gd")
+const MOB_TIMING := preload("res://game/mob_timing.gd")
 const CONFIRMED_TRACER_MATERIAL := preload("res://scenes/resources/tracer_confirmed.tres")
 
 @onready var tracer_slot_0: MeshInstance3D = $ShotTracer0
@@ -24,21 +26,34 @@ var _tracer_mesh: ArrayMesh
 var _predicted_tracer_material: StandardMaterial3D
 var _confirmed_tracer_material: StandardMaterial3D
 var _tracer_sequence := 0
+var _display_cursor_tick := 0.0
+var _last_network_tick := 0.0
+var _clock_initialized := false
+var _session_epoch := -1
+var _connection_generation := -1
+const NETWORK_TICK_RATE_HZ := MOB_TIMING.NETWORK_TICK_RATE_HZ
+const DISPLAY_DELAY_TICKS := MOB_TIMING.INTERPOLATION_DELAY_SECONDS * MOB_TIMING.NETWORK_TICK_RATE_HZ
+const CLOCK_SLEW_FRACTION := 0.25
+const MAX_RENDER_STEP_SECONDS := 0.1
+const MAX_RESYNC_TICKS := 6.0
+const MAX_CURSOR_LEAD_TICKS := 0.5
 
 func _ready() -> void:
+	add_to_group("mob_presentation")
 	_bind_authored_tracer_pool()
 	var net_session := _net_session()
 	net_session.shot_confirmed.connect(_confirmed)
 	net_session.shot_submitted.connect(_predicted)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	_expire_tracers(Time.get_ticks_usec())
 	var net_session := _net_session()
+	_reset_for_session_change(net_session)
+	var view_tick := _advance_display_cursor(delta)
 	for id in visuals.keys():
 		if not net_session.store.records.has(id):
 			visuals[id].queue_free()
 			visuals.erase(id)
-	var view_tick = _network_time().tick - 3.0
 	for id in net_session.store.records:
 		var row = net_session.store.records[id]
 		if not visuals.has(id):
@@ -47,16 +62,47 @@ func _process(_delta: float) -> void:
 				mesh.material_override = mesh.material_override.duplicate()
 			add_child(mesh)
 			visuals[id]=mesh
-		var position_to_show: Vector3 = row.position
-		var previous = row.history[0]
-		for entry in row.history:
-			if entry.tick>=view_tick:
-				position_to_show=previous.position.lerp(entry.position,clampf((view_tick-previous.tick)/maxf(1,entry.tick-previous.tick),0,1))
-				break
-			previous=entry
-		visuals[id].position=position_to_show+Vector3(0,.9,0)
-		visuals[id].rotation.y=row.yaw
+		var sample: Dictionary = MOB_VISUAL_SAMPLER.sample(row.history, view_tick, row.position, row.yaw)
+		visuals[id].position = sample.position + Vector3(0, .9, 0)
+		visuals[id].rotation.y = sample.yaw
 		visuals[id].material_override.albedo_color = Color(.4,.45,.49) if row.state==0 else Color(.9,.22,.16).lerp(Color(.95,.67,.1),1.0-row.hp/100.0)
+
+func _reset_for_session_change(net_session: Node) -> void:
+	var epoch := int(net_session.epoch)
+	var generation := int(net_session.connection_generation)
+	if not _clock_initialized or epoch != _session_epoch or generation != _connection_generation:
+		_clock_initialized = false
+		_session_epoch = epoch
+		_connection_generation = generation
+
+func _advance_display_cursor(delta: float) -> float:
+	var network_time := _network_time()
+	var network_tick := float(network_time.tick) + float(network_time.tick_factor)
+	var desired_tick := network_tick - DISPLAY_DELAY_TICKS
+	if not _clock_initialized or absf(network_tick - _last_network_tick) > MAX_RESYNC_TICKS:
+		_display_cursor_tick = desired_tick
+		_clock_initialized = true
+	else:
+		var elapsed_ticks := minf(maxf(delta, 0.0), MAX_RENDER_STEP_SECONDS) * NETWORK_TICK_RATE_HZ
+		var error_ticks := desired_tick - (_display_cursor_tick + elapsed_ticks)
+		var correction_ticks := clampf(error_ticks * CLOCK_SLEW_FRACTION, -elapsed_ticks * CLOCK_SLEW_FRACTION, elapsed_ticks * CLOCK_SLEW_FRACTION)
+		var stepped_tick := _display_cursor_tick + elapsed_ticks + correction_ticks
+		_display_cursor_tick = maxf(_display_cursor_tick, minf(stepped_tick, desired_tick + MAX_CURSOR_LEAD_TICKS))
+	_last_network_tick = network_tick
+	return _display_cursor_tick
+
+func get_display_tick() -> float:
+	return _display_cursor_tick
+
+func get_display_time_seconds() -> float:
+	# Stored row.tick is the pose at (tick + 1) / network rate.
+	return (_display_cursor_tick + 1.0) / NETWORK_TICK_RATE_HZ
+
+func get_rendered_mob_foot(id: Variant) -> Variant:
+	var visual: MeshInstance3D = visuals.get(id)
+	if visual == null or not is_instance_valid(visual):
+		return null
+	return visual.position - Vector3(0, .9, 0)
 
 func _predicted(origin: Vector3, endpoint: Vector3) -> void: _tracer(origin,endpoint,PREDICTED_TRACER_COLOR)
 

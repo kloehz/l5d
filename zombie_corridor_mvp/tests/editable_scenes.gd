@@ -807,8 +807,8 @@ func _check_presentation_runtime_template_behavior() -> void:
 	var tick: float = root.get_node("NetworkTime").tick
 	var previous_records: Dictionary = store.records.duplicate(true)
 	store.records.clear()
-	store.records["mob_a"] = {"position": Vector3.ZERO, "yaw": 0.0, "state": 1, "hp": 100.0, "history": [{"tick": tick - 4, "position": Vector3.ZERO}, {"tick": tick - 2, "position": Vector3.ZERO}]}
-	store.records["mob_b"] = {"position": Vector3(1, 0, -2), "yaw": .5, "state": 1, "hp": 25.0, "history": [{"tick": tick - 4, "position": Vector3(1, 0, -2)}, {"tick": tick - 2, "position": Vector3(1, 0, -2)}]}
+	store.records["mob_a"] = {"position": Vector3.ZERO, "yaw": 0.0, "state": 1, "hp": 100.0, "history": [{"tick": tick - 4, "position": Vector3.ZERO, "yaw": 0.0}, {"tick": tick - 2, "position": Vector3.ZERO, "yaw": 0.0}]}
+	store.records["mob_b"] = {"position": Vector3(1, 0, -2), "yaw": .5, "state": 1, "hp": 25.0, "history": [{"tick": tick - 4, "position": Vector3(1, 0, -2), "yaw": .5}, {"tick": tick - 2, "position": Vector3(1, 0, -2), "yaw": .5}]}
 	presentation._process(0.016)
 	check(presentation.visuals.size() == 2, "presentation still creates mob visuals dynamically from authored templates")
 	var mob_a := presentation.visuals.get("mob_a") as MeshInstance3D
@@ -979,7 +979,7 @@ func _check_configured_actor_before_ready(actor: CorridorPlayer, peer: int, pred
 		check(actor.rb.input_properties == ["Input:movement", "Input:look"], "%s MovementSync input properties are configured before ready" % label)
 		check(not actor.rb.enable_input_broadcast, "%s MovementSync input broadcast stays disabled before ready" % label)
 		check(actor.rb.enable_prediction == prediction_expected, "%s MovementSync prediction flag is configured before ready" % label)
-		check(actor.rb.full_state_interval == 15, "%s MovementSync full state interval is configured before ready" % label)
+		check(actor.rb.full_state_interval == 7, "%s MovementSync full state interval is configured before ready" % label)
 
 func _check_client_actor_runtime(actor: CorridorPlayer, local: bool, label: String) -> void:
 	check(actor.visual != null and actor.get_node_or_null("Visual") == actor.visual, "%s client actor keeps authored visual subtree" % label)
@@ -991,19 +991,18 @@ func _check_client_actor_runtime(actor: CorridorPlayer, local: bool, label: Stri
 		check(is_equal_approx(actor.camera.fov, 78.0), "%s camera keeps authored FOV at runtime" % label)
 
 func _check_remote_actor_jump_smoothing(actor: CorridorPlayer) -> void:
+	var logical_root := actor.global_position
 	var previous_visual := actor.visual.global_position
-	var new_pose := previous_visual + Vector3(4.0, 0.0, -3.0)
-	actor.position = new_pose
-	check(actor.global_position.is_equal_approx(new_pose), "remote actor logical pose accepts the authoritative jump")
-	check(actor.visual.global_position.is_equal_approx(previous_visual), "remote top-level visual stays at the prior world pose immediately after an actor jump")
-	var delta := 0.05
-	var alpha := 1.0 - exp(-delta * 12.0)
-	var expected := previous_visual.lerp(new_pose, alpha)
-	actor.facing = Vector2(.4, 0)
-	actor._process(delta)
-	check(actor.visual.global_position.is_equal_approx(expected), "remote visual applies exact exponential world-space smoothing after process")
-	check(actor.global_position.is_equal_approx(new_pose), "remote smoothing does not mutate the logical actor pose")
-	check(actor.camera == null or not actor.camera.current, "remote camera remains non-current after actor jump smoothing")
+	actor._remote_visual_playback.reset()
+	actor._remote_visual_playback.ingest({"tick": 100, "generation": 1, "position": previous_visual, "facing": Vector2.ZERO}, actor.life_id)
+	actor._remote_visual_playback.ingest({"tick": 101, "generation": 1, "position": previous_visual + Vector3(.1, 0, 0), "facing": Vector2(.2, 0)}, actor.life_id)
+	var bracket: Dictionary = actor._remote_visual_playback.sample_at(100.5)
+	check((bracket.position as Vector3).is_equal_approx(previous_visual + Vector3(.05, 0, 0)), "remote visual interpolates a bracket of two received samples")
+	check(is_equal_approx(float(bracket.yaw), -.1), "remote visual interpolates facing from the same received sample bracket")
+	actor.visual.global_position = bracket.position
+	actor.visual.rotation.y = bracket.yaw
+	check(actor.global_position.is_equal_approx(logical_root), "remote interpolation leaves logical root position unchanged")
+	check(actor.camera == null or not actor.camera.current, "remote camera remains non-current after bracket interpolation")
 
 func _check_local_actor_visual_follow(actor: CorridorPlayer) -> void:
 	var new_pose := actor.global_position + Vector3(-1.0, 0.0, -2.0)

@@ -1,5 +1,7 @@
 class_name CommittedCombat
 extends RefCounted
+
+const MOB_TIMING := preload("res://game/mob_timing.gd")
 var queue = []
 var rejected = {}
 var accepted_shots = 0
@@ -40,7 +42,7 @@ func process(players: Dictionary, mobs: MathematicalMobs, now: float) -> void:
 		var origin: Vector3 = p.pose+Vector3(0,1.55,0)
 		var distance = CorridorGeometry.wall_distance(origin,command.dir,NetSession.weapon_range)
 		var best = 0
-		var view = clampf(command.view,now-.25,now)
+		var view := MOB_TIMING.clamp_rewind_time(command.view, now)
 		# Bounded room <=100 mobs: complete historical broadphase includes movers' old cells.
 		for row in mobs.records.values():
 			if row.state == MathematicalMobs.State.DEAD or row.born > view: continue

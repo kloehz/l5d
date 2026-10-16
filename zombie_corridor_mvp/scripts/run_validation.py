@@ -1,8 +1,19 @@
 #!/usr/bin/env python3
 """Real-transport acceptance; any failed invariant exits nonzero."""
 from runtime import *
-import argparse,statistics,sys
+import argparse,re,statistics,sys
 RESULTS=[]
+def check_case_logs(owned):
+    """Examine only this case's sealed raw logs; never waive existing errors."""
+    owned.check_logs()
+    for _,log in owned.items:
+        text=log.read_text()
+        missing=re.search(r'Reference tick -?\d+ missing for #-?\d+ applying -?\d+',text)
+        if missing:
+            raise RuntimeError(f'Missing rollback reference in {log}: {missing.group()}')
+        expired=re.search(r'Received data for -?\d+, rejecting because older than \d+ frames|Received input snapshot for @-?\d+, rejecting because older than \d+ frames',text)
+        if expired:
+            raise RuntimeError(f'Expired rollback input in {log}: {expired.group()}')
 def case(name,scenario,behaviors,duration=12,build=False,network=None):
     owned=Processes();pnum=port();raw=ROOT/f'logs/{name}-server.jsonl';reports=[];proxy=None
     try:
@@ -42,7 +53,8 @@ def case(name,scenario,behaviors,duration=12,build=False,network=None):
             assert abs(latest[0]['pose'][1]-latest[1]['pose'][1])>100
         rtts=[v for r in latest for v in r['rtt_ms']];median=statistics.median(rtts)
         if network:assert network[0]*.75<median<network[0]+100,(name,'actual RTT not imposed',median)
-        owned.check_logs()
+        owned.cleanup()
+        check_case_logs(owned)
         result={'name':name,'status':'PASS','build':build,'players':len(behaviors),'duration_s':duration,'rtt_median_ms':median,'bot_kills':[r['kills'] for r in latest],'bot_deaths':[r['deaths'] for r in latest],'bot_respawns':[r['respawns'] for r in latest],'snapshots':[r['updates'] for r in latest],'server_combat_hits':full[-1]['combat_hits'],'server_kills':full[-1]['kills'],'cached_retries':full[-1]['combat_cached_retries'],'combat_rejected':full[-1]['combat_rejected'],'counts':[full[-1]['active_mobs'],full[-1]['dormant_mobs']],'logs':str(raw.relative_to(ROOT))}
         RESULTS.append(result);print(json.dumps(result),flush=True)
         return result
@@ -60,7 +72,7 @@ def reconnect(build=False):
         samples=[r for r in rows(ROOT/'logs/reconnect-server.jsonl') if r['kind']=='sample']
         assert max(r['players'] for r in samples)==2 and samples[-1]['players']==0
         assert rows(a)[-1]['distance']>6
-        owned.check_logs();RESULTS.append({'name':'late_join_reconnect_cleanup','status':'PASS','new_connection_peer':rows(a)[-1]['peer']});print('LATE_JOIN_RECONNECT_PASS',flush=True)
+        owned.cleanup();check_case_logs(owned);RESULTS.append({'name':'late_join_reconnect_cleanup','status':'PASS','new_connection_peer':rows(a)[-1]['peer']});print('LATE_JOIN_RECONNECT_PASS',flush=True)
     finally:owned.cleanup()
 def main():
     p=argparse.ArgumentParser();p.add_argument('--case',default='all');p.add_argument('--build',action='store_true');a=p.parse_args()

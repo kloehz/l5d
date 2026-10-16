@@ -84,6 +84,8 @@ var connection_generation = 0
 var reconnect_action_done = false
 var last_process_delta = 0.0
 var transport_trace = []
+const INPUT_BUDGET = preload("res://game/input_publication_budget.gd")
+var input_publication = INPUT_BUDGET.new()
 
 func _ready() -> void:
 	var settings=JSON.parse_string(FileAccess.get_file_as_string("res://config/default-config.json"))
@@ -110,6 +112,7 @@ func _ready() -> void:
 	scenario = str(args.get("scenario","play"))
 	Engine.max_fps = 60
 	get_tree().multiplayer_poll = false
+	_configure_multiplayer_api()
 	multiplayer.peer_disconnected.connect(_peer_left)
 	multiplayer.connected_to_server.connect(_connected)
 	multiplayer.connection_failed.connect(func(): _error("Connection failed"))
@@ -125,7 +128,7 @@ func _ready() -> void:
 	run_id = str(args.get("run-id",str(started_usec)))
 	if args.has("metrics"):
 		log_file = FileAccess.open(str(args.metrics),FileAccess.WRITE)
-		_write({"kind":"metadata","run_id":run_id,"scenario":scenario,"engine":Engine.get_version_info().string,"netfox":"1.35.3","cpu_scope":"100%=one core; harness ps delta CPU-time; RSS MiB","network_scope":"var_to_bytes encoded custom RPC arguments; excludes Netfox channel0 and Godot/ENet wire overhead","tick_boundary":"network loop including movement rollback amortized over new ticks + individual committed gameplay; per-commit subsystem durations reset; serialization nested in interest/publication/combat, movement nested in rollback; do not add; slide/replay counts amortized; physics_ray_queries zero because all hits are analytic","headless_max_fps":60,"physics_hz":30,"network_hz":30,"seed":99})
+		_write({"kind":"metadata","run_id":run_id,"scenario":scenario,"engine":Engine.get_version_info().string,"netfox":"1.35.3","server_relay":multiplayer.server_relay,"cpu_scope":"100%=one core; harness ps delta CPU-time; RSS MiB","network_scope":"var_to_bytes encoded custom RPC arguments; excludes Netfox channel0 and Godot/ENet wire overhead","tick_boundary":"network loop including movement rollback amortized over new ticks + individual committed gameplay; per-commit subsystem durations reset; serialization nested in interest/publication/combat, movement nested in rollback; do not add; slide/replay counts amortized; physics_ray_queries zero because all hits are analytic","headless_max_fps":60,"physics_hz":30,"network_hz":30,"seed":99})
 	if args.has("report"): report_file = FileAccess.open(str(args.report),FileAccess.WRITE)
 	get_tree().auto_accept_quit = false
 
@@ -161,6 +164,7 @@ func start_server(port: int) -> void:
 	peer.host.bandwidth_limit(0,0)
 	peer.host.channel_limit(18)
 	multiplayer.multiplayer_peer = peer
+	_configure_multiplayer_api()
 	epoch = int(Time.get_unix_time_from_system()) ^ int(randi() & 0x7fffffff)
 	mobs = MathematicalMobs.new()
 	combat = CommittedCombat.new()
@@ -191,7 +195,9 @@ func connect_to(host: String, port: int) -> void:
 	var result = peer.create_client(host,port,16)
 	if result != OK: _error("Invalid endpoint: "+error_string(result)); return
 	multiplayer.multiplayer_peer = peer
+	_configure_multiplayer_api()
 	connection_usec = Time.get_ticks_usec()
+	input_publication.begin_session(connection_generation, peer, NetworkTimeSynchronizer)
 	_set_status("Connecting to %s:%s" % [host,port])
 func _connected() -> void:
 	# Refresh RTT baseline frequently enough for the 60 Hz poll/bootstrap cadence.
@@ -226,17 +232,44 @@ func welcome(session: int, roster: Array) -> void:
 	for row in roster:
 		_create_actor(row)
 		gameplay[row.peer] = {"hp":row.hp,"life":row.life,"kills":row.kills,"pose":row.pose}
-	send_rpc("world_ready",1,[epoch])
 	_set_status("Synchronizing network clock")
 	var generation=connection_generation
 	var sync_result=await NetworkTime.start()
-	if generation!=connection_generation or not multiplayer.has_multiplayer_peer() or multiplayer.multiplayer_peer is OfflineMultiplayerPeer: return
+	if not _input_session_current(generation): return
 	if sync_result!=OK: _error("Network clock could not start"); return
+	_set_status("Waiting for usable input clock budget")
+	# Netfox timestamp/ping exchange and after_client_sync do not depend on
+	# world_ready. Keep combat inactive until the same outbound budget fits.
+	if not await _await_input_publication(generation): return
+	send_rpc("world_ready",1,[epoch])
 	is_ready = true
 	own_life = gameplay[local_peer()].life
 	bot_start_pose = own_actor().position
 	_set_status("Connected • dedicated server")
 	print("CLIENT_READY ",local_peer())
+
+func _await_input_publication(generation: int) -> bool:
+	while _input_session_current(generation):
+		if Time.get_ticks_usec()-connection_usec >= 20000000:
+			_error("Input clock budget timed out")
+			return false
+		var local_actor = actors.get("%s_%s" % [local_peer(),gameplay.get(local_peer(),{}).get("life",0)])
+		if local_actor != null and local_actor.rb._history_transmitter._is_initialized:
+			var tail: int = local_actor.rb._history_transmitter._input_encoder.redundancy - 1
+			if input_publication_status(NetworkTime.tick + NetworkRollback.input_delay, tail).allowed:
+				return true
+		await get_tree().process_frame
+	return false
+func _input_session_current(generation: int) -> bool:
+	return generation == connection_generation and multiplayer.has_multiplayer_peer() and not multiplayer.multiplayer_peer is OfflineMultiplayerPeer
+
+func input_publication_status(wire_tick: int, tail: int) -> Dictionary:
+	var fresh: bool = input_publication.fresh_measurement(connection_generation, multiplayer.multiplayer_peer, NetworkTimeSynchronizer, Time.get_ticks_usec())
+	return INPUT_BUDGET.evaluate(NetworkTime.tick, wire_tick, tail, NetworkRollback.history_limit,
+		NetworkTime.ticktime, NetworkTimeSynchronizer.get_time() - NetworkTime.time,
+		NetworkTimeSynchronizer.remote_offset, NetworkTimeSynchronizer.rtt,
+		NetworkTimeSynchronizer.rtt_jitter, fresh)
+
 @rpc("any_peer","call_remote","reliable",8)
 func world_ready(session: int) -> void:
 	if is_server: receive_payload(multiplayer.get_remote_sender_id(),[session])
@@ -493,7 +526,7 @@ func _process(delta: float) -> void:
 				next_fire = now+1.0/weapon_rate+.0133333333
 				shot_id += 1
 				var dir = local_shot_direction()
-				send_rpc("shoot",1,[epoch,own_life,shot_id,dir,maxf(0,NetworkTime.time-.1)])
+				send_rpc("shoot",1,[epoch,own_life,shot_id,dir,shot_view_time_seconds()])
 				var actor = own_actor()
 				if actor: shot_submitted.emit(actor.position+Vector3(0,1.55,0),actor.position+Vector3(0,1.55,0)+dir*weapon_range)
 				if args.get("behavior","")=="malicious":
@@ -506,6 +539,24 @@ func _process(delta: float) -> void:
 					send_rpc("shoot",1,[epoch+1,own_life,shot_id+3,dir,NetworkTime.time])
 					send_rpc("shoot",1,[epoch,own_life,shot_id+4,dir,NetworkTime.time+100])
 		if report_file and elapsed()-bot_report_clock>=1.0: _bot_report(); bot_report_clock=elapsed()
+func shot_view_time_seconds() -> float:
+	var presentation := _mob_presentation()
+	if presentation and presentation.has_method("get_display_time_seconds"):
+		return float(presentation.get_display_time_seconds())
+	return maxf(0.0, NetworkTime.time - .1)
+
+func displayed_mob_foot(id: Variant, fallback: Vector3) -> Vector3:
+	var presentation := _mob_presentation()
+	if presentation and presentation.has_method("get_rendered_mob_foot"):
+		var rendered: Variant = presentation.get_rendered_mob_foot(id)
+		if rendered is Vector3 and CorridorGeometry.finite_vector(rendered):
+			return rendered
+	return fallback
+
+func _mob_presentation() -> Node:
+	var candidates := get_tree().get_nodes_in_group("mob_presentation")
+	return candidates[0] if not candidates.is_empty() else null
+
 func local_shot_direction() -> Vector3:
 	var actor = own_actor()
 	if actor and actor.has_method("camera_aim_direction"):
@@ -567,6 +618,7 @@ func _bot_report() -> void:
 	report_file.flush()
 func disconnect_session(reset_status: bool=true) -> void:
 	connection_generation+=1
+	input_publication.end_session()
 	_stop_local_children()
 	is_ready = false
 	control_move=Vector2.ZERO; control_fire=false
@@ -633,11 +685,26 @@ func actor_ready(session: int, key: String) -> void:
 		for actor in actors.values(): actor.rb.visibility_filter.update_visibility()
 
 func send_rpc(method: String, peer: int, values: Array) -> void:
+	if not _can_send_to_peer(peer):
+		return
 	if is_server:
 		var size = var_to_bytes(values).size()
 		app_tx += size
 		tx_by_peer[peer] = tx_by_peer.get(peer,0)+size
 	callv("rpc_id",[peer,method]+values)
+
+func _configure_multiplayer_api() -> void:
+	multiplayer.server_relay = false
+
+func _can_send_to_peer(peer: int) -> bool:
+	if peer <= 0 or not multiplayer.has_multiplayer_peer() or multiplayer.multiplayer_peer is OfflineMultiplayerPeer:
+		return false
+	if not multiplayer.get_peers().has(peer):
+		return false
+	if not multiplayer.multiplayer_peer is ENetMultiplayerPeer:
+		return true
+	var packet_peer: ENetPacketPeer = multiplayer.multiplayer_peer.get_peer(peer)
+	return packet_peer != null and packet_peer.is_active() and packet_peer.get_state() == ENetPacketPeer.STATE_CONNECTED
 
 func receive_payload(peer: int, values: Array) -> void:
 	var size = var_to_bytes(values).size()

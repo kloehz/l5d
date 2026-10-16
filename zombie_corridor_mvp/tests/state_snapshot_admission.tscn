@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/state_snapshot_admission.gd" id="1_state_snapshot_admission"]
+
+[node name="StateSnapshotAdmission" type="Node"]
+script = ExtResource("1_state_snapshot_admission")
